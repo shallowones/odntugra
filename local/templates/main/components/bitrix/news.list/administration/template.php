@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,40 +12,30 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="admistration">
-    <? foreach ($arResult["ITEMS"] as $arItem): ?>
-        <?
-        $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-        $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-        ?>
-        <div class="admistration-items">
-            <p class="admistration-img"><? if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
-                    <img style="max-width: 16.875rem;" src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>">
-                <? else: ?>
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/images/no-photo.png"><? endif; ?></p>
-            <p class="admistration-position"><?= $arItem["NAME"] ?></p>
 
-
-            <p class="admistration-name">
-                <? if ($arItem["PROPERTIES"]["NAME"]["VALUE"]): ?>
-                    <?= $arItem["PROPERTIES"]["NAME"]["VALUE"] ?>
-                <? else: ?>
-                    <a class="link-email" href="http://odntugra.probitrix.com/about/vakansii.php">Вакансия</a>
-                <? endif; ?>
-            </p>
-
-
-            <p class="admistration-contact">тел.: <?= $arItem["PROPERTIES"]["PHONE"]["VALUE"] ?>
-                <? if ($arItem["PROPERTIES"]["EMAIL"]["VALUE"]): ?>
-                ;<br>E-mail: <a class="link-email"
-                                href="mailto:<?= $arItem["PROPERTIES"]["EMAIL"]["VALUE"] ?>"><?= $arItem["PROPERTIES"]["EMAIL"]["VALUE"] ?></a>
-            </p>
-            <? else: ?>
-
-            <? endif; ?>
-        </div>
-
-
-    <? endforeach; ?>
-
-</div>
+<? if ($arResult['ITEMS']): ?>
+    <div class="adm">
+        <? foreach ($arResult['ITEMS'] as $item):
+            $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
+            $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_DELETE'), ['CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
+            ?>
+            <div class="adm-item">
+                <div class="adm-item-left">
+                    <img class="adm-item__img" src="<? echo $item['PREVIEW_PICTURE']['CROP_SRC'] ?>">
+                </div>
+                <div class="adm-item-right">
+                    <div class="adm-item__post"><? echo $item['NAME'] ?></div>
+                    <div class="adm-item__name"><? echo $item['PROPERTIES']['FIO']['VALUE'] ?></div>
+                    <ul class="adm-item__contacts">
+                        <? if ($phone = $item['PROPERTIES']['PHONE']['VALUE']): ?>
+                            <li>тел.: <b><? echo $phone ?></b></li>
+                        <? endif; ?>
+                        <? if ($email = $item['PROPERTIES']['EMAIL']['VALUE']): ?>
+                            <li>E-mail: <a href="<? echo 'mailto:' . $email ?>"><b><? echo $email ?></b></a></li>
+                        <? endif; ?>
+                    </ul>
+                </div>
+            </div>
+        <? endforeach; ?>
+    </div>
+<? endif; ?>

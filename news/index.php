@@ -1,12 +1,14 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Пресс-служба");
-?><?$APPLICATION->IncludeComponent(
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+/** @global CMain $APPLICATION */
+$APPLICATION->SetTitle("Новости");
+?>
+
+<? $APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	"main-news", 
+	"news", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -22,15 +24,19 @@ $APPLICATION->SetTitle("Пресс-служба");
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_FIELD_CODE" => array(
-			0 => "CONSOLIDATE",
-			1 => "FILES",
+			0 => "NAME",
+			1 => "PREVIEW_PICTURE",
+			2 => "DETAIL_TEXT",
+			3 => "",
 		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "CONSOLIDATE",
+			0 => "",
 			1 => "FILES",
+			2 => "PHOTOS",
+			3 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -49,34 +55,34 @@ $APPLICATION->SetTitle("Пресс-служба");
 			1 => "",
 		),
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "1",
+		"IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_NEWS),
 		"IBLOCK_TYPE" => "Pressa",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
 		"LIST_FIELD_CODE" => array(
 			0 => "",
 			1 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
-			0 => "CONSOLIDATE",
-			1 => "FILES",
+			0 => "",
+			1 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"NEWS_COUNT" => "10",
+		"NEWS_COUNT" => "5",
 		"PAGER_BASE_LINK_ENABLE" => "N",
-		"PAGER_DESC_NUMBERING" => "Y",
+		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "Y",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "custom",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_MODE" => "N",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "Y",
-		"SET_TITLE" => "Y",
+		"SET_TITLE" => "N",
 		"SHOW_404" => "N",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
@@ -89,11 +95,15 @@ $APPLICATION->SetTitle("Пресс-служба");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"COMPONENT_TEMPLATE" => "main-news",
-		"VARIABLE_ALIASES" => array(
-			"SECTION_ID" => "SECTION_ID",
-			"ELEMENT_ID" => "ELEMENT_ID",
+		"COMPONENT_TEMPLATE" => "news",
+		"SEF_FOLDER" => "/news/",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "",
+			"detail" => "#CODE#/",
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+); ?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

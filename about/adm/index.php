@@ -1,7 +1,9 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+/** @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Администрация Автономного учреждения Ханты-Мансийского автономного округа – Югра \"Творческое объединение \"Культура\"");
-?><?$APPLICATION->IncludeComponent(
+?>
+
+<? $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"administration", 
 	array(
@@ -30,8 +32,8 @@ $APPLICATION->SetTitle("Администрация Автономного учр
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "2",
-		"IBLOCK_TYPE" => "-",
+		"IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_ADMINISTRATION),
+		"IBLOCK_TYPE" => "content",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
@@ -47,10 +49,11 @@ $APPLICATION->SetTitle("Администрация Автономного учр
 		"PARENT_SECTION_CODE" => "adm",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
-			0 => "EMAIL",
-			1 => "PHONE",
-			2 => "NAME",
-			3 => "",
+			0 => "",
+			1 => "EMAIL",
+			2 => "PHONE",
+			3 => "NAME",
+			4 => "",
 		),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
@@ -59,11 +62,13 @@ $APPLICATION->SetTitle("Администрация Автономного учр
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "N",
 		"SHOW_404" => "N",
-		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_BY2" => "SORT",
-		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
+		"SORT_BY1" => "SORT",
+		"SORT_BY2" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "ASC",
+		"SORT_ORDER2" => "DESC",
 		"COMPONENT_TEMPLATE" => "administration"
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+); ?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
