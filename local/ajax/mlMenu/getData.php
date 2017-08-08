@@ -8,20 +8,24 @@ $request = \Bitrix\Main\Application::getInstance()
     ->getContext()
     ->getRequest();
 
-if ($request->get('getData')) {
-
-$arr = $APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    ".default",
-    array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "AREA_FILE_RECURSIVE" => "",
-        "EDIT_TEMPLATE" => "",
-        "COMPONENT_TEMPLATE" => ".default",
-        "PATH" => SITE_TEMPLATE_PATH . "/include/contacts.html"
-    ),
-    false
-);
-
+if ($curDir = $request->get('curDir')) {
+    $APPLICATION->IncludeComponent(
+        "bitrix:menu",
+        "main-menu",
+        array(
+            "COMPONENT_TEMPLATE" => "main-menu",
+            "ROOT_MENU_TYPE" => "top",
+            "MENU_CACHE_TYPE" => "N",
+            "MENU_CACHE_TIME" => "3600",
+            "MENU_CACHE_USE_GROUPS" => "Y",
+            "MENU_CACHE_GET_VARS" => array(),
+            "MAX_LEVEL" => "4",
+            "CHILD_MENU_TYPE" => "left",
+            "USE_EXT" => "N",
+            "DELAY" => "N",
+            "ALLOW_MULTI_SELECT" => "N",
+            "CURRENT_DIR" => $curDir
+        ),
+        false
+    );
 }

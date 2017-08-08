@@ -1,113 +1,101 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arResult */
+/** @var array $arParams */
+/** @global $APPLICATION */
 
-define('MAX_DEPTH_LEVEL', 4);
+define('MAIN', 'main');
+$count = 0;
+$result[$count] = [
+    'id' => MAIN,
+    'active' => true,
+    'parentId' => ''
+];
 
 foreach ($arResult as $key => $item) {
-    $arResult[$key]['ID'] = $key;
-}
-
-/*$lastId = 'main';
-$lastSecondId = randString(2);
-$result[$lastId] = [
-    'id' => $lastId,
-    'parentId' => '',
-    'active' => true
-];*/
-
-$previousLevel = 1;
-foreach ($arResult as $key => $item) {
-
-    $result[$key] = [
-        'id' => $key
-    ];
-
-    if ($previousLevel === intval($item['DEPTH_LEVEL'])) {
+    if ($item['DEPTH_LEVEL'] === 1) {
         if ($item['IS_PARENT']) {
-            $result[$item['ID']]['items'][] = [
+            $result[$count]['items'][] = [
                 'name' => $item['TEXT'],
-                'action' => $lastId
+                'action' => strval($key)
             ];
         } else {
-            $result[$item['ID']]['items'][] = [
+            $result[$count]['items'][] = [
                 'name' => $item['TEXT'],
-                'link' => $item['LINK']
+                'link' => $item['LINK'],
+                'selected' => false
             ];
         }
     }
-
-
-
-    if ($previousLevel < intval($item['DEPTH_LEVEL'])) {
-
-        $lastId = randString();
-
-        $result[$item['ID']] = [
-            'id' => $item['ID'],
-            'parentId' => $lastId,
-            'active' => true
-        ];
-    }
-
-
-
-
-
-
-    $previousLevel = $item['DEPTH_LEVEL'];
 }
 
-gg($result);
+$count++;
 
+foreach ($arResult as $key => $item) {
 
+    if ($item['IS_PARENT']) {
+        $result[$count]['id'] = strval($key);
 
-$previousLevel = 0;
-foreach ($arResult as $arItem):?>
+        if (empty($result[$count]['active'])) {
+            $result[$count]['active'] = false;
+        }
 
-    <? if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
-        <?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
-    <?endif
-    ?>
+        for ($i = count($arResult); $i >= 0; $i--) {
+            $keyPrev = strval($i - $key - 1);
 
-    <? if ($arItem["IS_PARENT"]):?>
+            if (!array_key_exists($keyPrev, $arResult)) {
+                $result[$count]['parentId'] = MAIN;
+                break;
+            }
 
-        <? if ($arItem["DEPTH_LEVEL"] == 1):?>
-            <li><a href="<?= $arItem["LINK"] ?>"
-                   class="<? if ($arItem["SELECTED"]):?>root-item-selected<? else:?>root-item<? endif ?>"><?= $arItem["TEXT"] ?></a>
-            <ul>
-        <? else:?>
-            <li<? if ($arItem["SELECTED"]):?> class="item-selected"<? endif ?>><a href="<?= $arItem["LINK"] ?>"
-                                                                                  class="parent"><?= $arItem["TEXT"] ?></a>
-            <ul>
-        <? endif ?>
+            $prev = $arResult[$keyPrev];
 
-    <? else:?>
+            if ($item['DEPTH_LEVEL'] - 1 === $prev['DEPTH_LEVEL']) {
+                $result[$count]['parentId'] = $keyPrev;
+                break;
+            }
 
-        <? if ($arItem["PERMISSION"] > "D"):?>
+        }
 
-            <? if ($arItem["DEPTH_LEVEL"] == 1):?>
-                <li><a href="<?= $arItem["LINK"] ?>"
-                       class="<? if ($arItem["SELECTED"]):?>root-item-selected<? else:?>root-item<? endif ?>"><?= $arItem["TEXT"] ?></a>
-                </li>
-            <? else:?>
-                <li<? if ($arItem["SELECTED"]):?> class="item-selected"<? endif ?>><a
-                            href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a></li>
-            <? endif ?>
+        $itemIndex = 0;
+        for ($i = $key + 1; $i < count($arResult); $i++) {
 
-        <? else:?>
+            if (!array_key_exists($i, $arResult)) break;
 
-            <? if ($arItem["DEPTH_LEVEL"] == 1):?>
-                <li><a href="" class="<? if ($arItem["SELECTED"]):?>root-item-selected<? else:?>root-item<? endif ?>"
-                       title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
-            <? else:?>
-                <li><a href="" class="denied"
-                       title="<?= GetMessage("MENU_ITEM_ACCESS_DENIED") ?>"><?= $arItem["TEXT"] ?></a></li>
-            <? endif ?>
+            $next = $arResult[$i];
 
-        <? endif ?>
+            if ($item['DEPTH_LEVEL'] + 1 === $next['DEPTH_LEVEL'] && $itemIndex === $next['ITEM_INDEX']) {
+                if ($next['IS_PARENT']) {
+                    $result[$count]['items'][] = [
+                        'name' => $next['TEXT'],
+                        'action' => strval($i)
+                    ];
+                } else {
+                    $result[$count]['items'][] = [
+                        'name' => $next['TEXT'],
+                        'link' => $next['LINK'],
+                        'selected' => false
+                    ];
+                }
+                $itemIndex++;
+            }
+        }
 
-    <? endif ?>
+        $count++;
+    }
+}
 
-    <? $previousLevel = $arItem["DEPTH_LEVEL"]; ?>
+// добавляем активный пункт меню, т.к. компонент не видит текущий раздел из-за того, что вызывается путем ajax-запроса
+foreach ($result as $keyParent => $parent) {
+    foreach ($parent['items'] as $keyItem => $item) {
+        if ($item['link'] === $arParams['CURRENT_DIR']) {
+            $result[$keyParent]['items'][$keyItem]['selected'] = true;
 
-<? endforeach ?>
+            if ($keyParent !== 0) {
+                $result[$keyParent]['active'] = true;
+                $result[0]['active'] = false;
+            }
+        }
+    }
+}
+
+$arResult['JSON'] = json_encode($result);

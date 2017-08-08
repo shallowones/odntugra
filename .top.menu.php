@@ -15,13 +15,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Публикации В СМИ", 
-		"/smi/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Фотогалерея", 
 		"/photo/", 
 		Array(), 
@@ -44,7 +37,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Календарь памятных дат", 
-		"/calendar/", 
+		"/calendar/history/",
 		Array(), 
 		Array(), 
 		"" 

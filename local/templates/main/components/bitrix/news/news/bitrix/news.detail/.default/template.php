@@ -24,7 +24,7 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
     <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
     <img class="detail-page-img" src="<? echo $arResult['PREVIEW_PICTURE']['CROP_SRC'] ?>">
     <div class="detail-page-text">
-        <? echo $arResult["DETAIL_TEXT"] ?>
+        <? echo $arResult["~DETAIL_TEXT"] ?>
     </div>
     <? if ($fileValue): ?>
         <div class="files">

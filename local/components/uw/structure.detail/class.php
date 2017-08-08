@@ -14,12 +14,15 @@ class CUwStructureDetail extends CBitrixComponent
             false,
             ['ID', 'NAME', 'DESCRIPTION', 'UF_PHONES']
         );
-        while ($section = $rs->Fetch()) {
+        if ($section = $rs->Fetch()) {
             $this->arResult['section'] = [
                 'name' => $section['NAME'],
                 'description' => $section['DESCRIPTION'],
                 'phones' => implode('<br>', $section['UF_PHONES'])
             ];
+
+            global $APPLICATION;
+            $APPLICATION->SetTitle($section['NAME']);
         }
 
         $rs = \CIBlockElement::GetList(

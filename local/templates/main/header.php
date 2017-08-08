@@ -44,6 +44,8 @@ foreach ($page['meta'] as $meta) {
     $asset->addString($meta);
 }
 
+global $USER;
+$isAdmin = $USER->IsAdmin();
 $main = ($APPLICATION->GetCurDir() === '/');
 ?>
 <!DOCTYPE html>
@@ -53,8 +55,7 @@ $main = ($APPLICATION->GetCurDir() === '/');
     <? $APPLICATION->ShowHead() ?>
 </head>
 <body>
-<div class="page" style="padding-top: 39px">
-    <?/*<div class="bx-panel"><? $APPLICATION->ShowPanel() ?></div>*/?>
+<div class="page<? echo ($isAdmin) ? ' with-panel' : '' ?>">
     <div class="bx-panel"><? $APPLICATION->ShowPanel() ?></div>
     <div class="page-overlay"></div>
     <header class="header">
@@ -95,7 +96,7 @@ $main = ($APPLICATION->GetCurDir() === '/');
     </header>
     <div class="header-mobile">
         <button class="header-mobile__button js-mobile"></button>
-        <div class="header-mobile__logo"></div>
+        <a class="header-mobile__logo" href="/"></a>
     </div>
     <main class="main">
         <? if (!$main): ?>

@@ -5,14 +5,16 @@
     defaults: {
       name: '',
       action: '',
-      link: ''
+      link: '',
+      selected: false
     },
 
     parse (attrs) {
       return {
         name: attrs.name || '',
         action: attrs.action || '',
-        link: attrs.link || ''
+        link: attrs.link || '',
+        selected: attrs.selected || false
       }
     }
   })

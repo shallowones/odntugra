@@ -10,7 +10,14 @@
 
       $this.$el
         .text($this.model.get('name'))
-        .attr('href', $this.model.get('link'))
+
+      if (!$this.model.get('selected')) {
+        $this.$el
+          .attr('href', $this.model.get('link'))
+      } else {
+        $this.$el
+          .addClass('checked')
+      }
 
       return $this
     }

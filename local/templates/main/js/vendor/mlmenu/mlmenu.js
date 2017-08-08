@@ -1,11 +1,36 @@
-(function ($, App) {
+(function ($, App, JSON) {
   'use strict'
 
   $(document).ready(function () {
 
-    const mlMenu = $('#ml-menu')
+    const
+      mlMenu = $('#ml-menu'),
+      pathName = window.location.pathname,
+      curDir = pathName.substring(0, pathName.lastIndexOf('/') + 1)
 
-    let answer = [
+    $.ajax({
+      url: '/local/ajax/mlMenu/getData.php',
+      data: {
+        curDir
+      },
+      success: (answer) => {
+        if (answer) {
+
+          const groups = new App.Collections.Groups(JSON.parse(answer), {
+            parse: true
+          });
+
+          const menu = new App.Views.Menu({
+            collection: groups
+          })
+
+          mlMenu
+            .append(menu.render().el)
+        }
+      }
+    })
+
+    /*let answer = [
       {
         id: 'main',
         parentId: '',
@@ -125,20 +150,9 @@
           }
         ]
       }
-    ]
-
-    const groups = new App.Collections.Groups(answer, {
-      parse: true
-    });
-
-    const menu = new App.Views.Menu({
-      collection: groups
-    })
-
-    mlMenu
-      .append(menu.render().el)
+    ]*/
 
   })
 
 
-}(jQuery, App))
+}(jQuery, App, JSON))

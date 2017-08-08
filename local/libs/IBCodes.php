@@ -30,7 +30,7 @@ class IBCodes
     const IB_CODE_VIDEO = 'videogallery';
 
     /**
-     * Инфоблок "Реестры"
+     * Инфоблок "Деятельность"
      */
     const IB_CODE_REGISTERS = 'registers';
 

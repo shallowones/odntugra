@@ -61,13 +61,13 @@ class CUwMonthFilter extends CBitrixComponent
     {
         $request = $this->request;
 
-        if ($request->get('set-month') !== '') {
+        if (!empty($request->get('set-month'))) {
             $this->setFilter($request->get('set-month'));
         }
-        if ($request->get('clear-filter')) {
+        if (!empty($request->get('clear-filter'))) {
             $this->clearFilter();
         }
-
+        
         $this
             ->getMonths()
             ->IncludeComponentTemplate();

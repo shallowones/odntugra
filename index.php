@@ -197,110 +197,163 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
     </div>
     <div class="blue">
         <div class="wrapper">
-            <h1 class="main-h1">Ближайшие мероприятия<a class="link" href="#">Все мероприятия</a></h1>
-            <div class="blue-flex"><a class="blue__item" href="#">Древний праздник встречи весны у северных народов
-                    ханты и манси <span>8 апреля 2017</span></a><a class="blue__item" href="#">
-                    В Ханты-Мансийске состоялся вечер-сказ «Всё отдать земле и детям…», посвященный 80-летию
-                    Марии Кузьминичны Волдиной. <span>28 января 2017</span></a><a class="blue__item" href="#">Межрегиональный
-                    форум «Диалог национальных культур» <span>4 января 2017</span></a><a class="blue__item" href="#">
-                    В Ханты-Мансийске состоялся вечер-сказ «Всё отдать земле и детям…», посвященный 80-летию
-                    Марии Кузьминичны Волдиной. <span>28 января 2017</span></a></div>
-            <a class="mobile-more" href="#">ВСЕ МЕРОПРИЯТИЯ</a>
+            <h1 class="main-h1">Ближайшие мероприятия<a class="link" href="/projects-events/">Все мероприятия</a></h1>
+            <? // выводим только ближайшие мероприятия, то есть те, которые ближе к текущему дню
+            $GLOBALS['mainEventsFilter'] = [
+                '>=DATE_ACTIVE_FROM' => date('d.m.Y 00:00:00')
+            ];
+            $APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "main-events",
+                array(
+                    "COMPONENT_TEMPLATE" => "main-events",
+                    "IBLOCK_TYPE" => "projects_events",
+                    "IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_EVENTS),
+                    "NEWS_COUNT" => "4",
+                    "SORT_BY1" => "ACTIVE_FROM",
+                    "SORT_ORDER1" => "ASC",
+                    "SORT_BY2" => "SORT",
+                    "SORT_ORDER2" => "DESC",
+                    "FILTER_NAME" => "mainEventsFilter",
+                    "FIELD_CODE" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "PROPERTY_CODE" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "CHECK_DATES" => "N",
+                    "DETAIL_URL" => "",
+                    "AJAX_MODE" => "N",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "Y",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "CACHE_TYPE" => "A",
+                    "CACHE_TIME" => "36000000",
+                    "CACHE_FILTER" => "N",
+                    "CACHE_GROUPS" => "Y",
+                    "PREVIEW_TRUNCATE_LEN" => "",
+                    "ACTIVE_DATE_FORMAT" => "j F Y",
+                    "SET_TITLE" => "N",
+                    "SET_BROWSER_TITLE" => "N",
+                    "SET_META_KEYWORDS" => "N",
+                    "SET_META_DESCRIPTION" => "N",
+                    "SET_LAST_MODIFIED" => "N",
+                    "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                    "ADD_SECTIONS_CHAIN" => "N",
+                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                    "PARENT_SECTION" => "",
+                    "PARENT_SECTION_CODE" => "",
+                    "INCLUDE_SUBSECTIONS" => "Y",
+                    "DISPLAY_DATE" => "Y",
+                    "DISPLAY_NAME" => "Y",
+                    "DISPLAY_PICTURE" => "Y",
+                    "DISPLAY_PREVIEW_TEXT" => "Y",
+                    "PAGER_TEMPLATE" => ".default",
+                    "DISPLAY_TOP_PAGER" => "N",
+                    "DISPLAY_BOTTOM_PAGER" => "N",
+                    "PAGER_TITLE" => "Новости",
+                    "PAGER_SHOW_ALWAYS" => "N",
+                    "PAGER_DESC_NUMBERING" => "N",
+                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                    "PAGER_SHOW_ALL" => "N",
+                    "PAGER_BASE_LINK_ENABLE" => "N",
+                    "SET_STATUS_404" => "N",
+                    "SHOW_404" => "N",
+                    "MESSAGE_404" => ""
+                ),
+                false
+            ); ?>
+            <a class="mobile-more" href="/projects-events/">ВСЕ МЕРОПРИЯТИЯ</a>
         </div>
     </div>
     <div class="wrapper photo">
-        <h1 class="main-h1">Фотогалерея<a class="link" href="#">Все фотографии</a></h1>
-        <div class="swiper-container photo-slider js-bottom-slider">
-            <div class="swiper-wrapper bottom-wrapper"><a class="swiper-slide photos__item" href="#">
-                    <div class="photos__item-img" style="background-image: url('../images/content/foto-1.png');"></div>
-                    <div class="photos__item-wrap"></div>
-                    <div class="photos__item-desc">
-                        <div class="photos__item-desc__date">24 марта 2017</div>
-                        <div class="photos__item-desc__title">Праздничный концерт, посвященный Дню работника культуры
-                        </div>
-                    </div>
-                    <div class="more">ПЕРЕЙТИ К АЛЬБОМУ</div>
-                </a><a class="swiper-slide photos__item" href="#">
-                    <div class="photos__item-img" style="background-image: url('../images/content/foto-2.png');"></div>
-                    <div class="photos__item-wrap"></div>
-                    <div class="photos__item-desc">
-                        <div class="photos__item-desc__date">24 марта 2017</div>
-                        <div class="photos__item-desc__title">Праздничный концерт, посвященный Дню работника культуры
-                        </div>
-                    </div>
-                    <div class="more">ПЕРЕЙТИ К АЛЬБОМУ</div>
-                </a><a class="swiper-slide photos__item" href="#">
-                    <div class="photos__item-img" style="background-image: url('../images/content/foto-3.png');"></div>
-                    <div class="photos__item-wrap"></div>
-                    <div class="photos__item-desc">
-                        <div class="photos__item-desc__date">24 марта 2017</div>
-                        <div class="photos__item-desc__title">Праздничный концерт, посвященный Дню работника культуры
-                        </div>
-                    </div>
-                    <div class="more">ПЕРЕЙТИ К АЛЬБОМУ</div>
-                </a></div>
-            <div class="swiper-button-prev inner-left"></div>
-            <div class="swiper-button-next inner-right"></div>
-        </div>
-        <a class="mobile-more" href="#">ВСЕ ФОТОГРАФИИ</a>
+        <h1 class="main-h1">Фотогалерея<a class="link" href="/photo/">Все фотографии</a></h1>
+        <? $APPLICATION->IncludeComponent(
+            'uw:photogallery.list',
+            '.default',
+            [
+                'IBLOCK_ID' => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_PHOTO),
+                'DETAIL' => '/photo/#SECTION_ID#/'
+            ],
+            false
+        ); ?>
+        <a class="mobile-more" href="/photo/">ВСЕ ФОТОГРАФИИ</a>
     </div>
     <div class="blue-second">
         <div class="wrapper">
             <h1 class="main-h1">Коллективы ОДНТ</h1>
-            <div class="swiper-container bottom-slider js-bottom-slider">
-                <div class="swiper-wrapper bottom-wrapper"><a class="swiper-slide bottom-slide" href="#"><img
-                                class="bottom-slide__img" src="../images/content/bottom-1.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Народный семейный фольклорно-этнографический ансамбль «Ешак
-                            най»
-                        </div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-2.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Народный самодеятельный коллектив Хор русской песни «Покрова»
-                        </div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-3.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Хореографический коллектив «Феерия»</div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-4.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Детская студия танца народов Кавказа</div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-1.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Народный семейный фольклорно-этнографический ансамбль «Ешак
-                            най»
-                        </div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-2.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Народный самодеятельный коллектив Хор русской песни «Покрова»
-                        </div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-3.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Хореографический коллектив «Феерия»</div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a><a class="swiper-slide bottom-slide" href="#"><img class="bottom-slide__img"
-                                                                           src="../images/content/bottom-4.png">
-                        <div class="inner-slide__wrap"></div>
-                        <div class="bottom-slide__desc">Детская студия танца народов Кавказа</div>
-                        <div class="more">ПОДРОБНЕЕ</div>
-                    </a></div>
-                <div class="swiper-button-prev inner-left"></div>
-                <div class="swiper-button-next inner-right"></div>
-            </div>
+            <? // выводим только те коллективы, которые находятся в разделе Коллективы ОДНТ
+            $APPLICATION->IncludeComponent(
+                "bitrix:news.list",
+                "main-collectives",
+                array(
+                    "COMPONENT_TEMPLATE" => "main-collectives",
+                    "IBLOCK_TYPE" => "deyatelnost",
+                    "IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_REGISTERS),
+                    "NEWS_COUNT" => "20",
+                    "SORT_BY1" => "SORT",
+                    "SORT_ORDER1" => "ASC",
+                    "SORT_BY2" => "ACTIVE_FROM",
+                    "SORT_ORDER2" => "ASC",
+                    "FILTER_NAME" => "",
+                    "FIELD_CODE" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "PROPERTY_CODE" => array(
+                        0 => "",
+                        1 => "",
+                    ),
+                    "CHECK_DATES" => "N",
+                    "DETAIL_URL" => "",
+                    "AJAX_MODE" => "N",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "Y",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "CACHE_TYPE" => "A",
+                    "CACHE_TIME" => "36000000",
+                    "CACHE_FILTER" => "N",
+                    "CACHE_GROUPS" => "Y",
+                    "PREVIEW_TRUNCATE_LEN" => "",
+                    "ACTIVE_DATE_FORMAT" => "j F Y",
+                    "SET_TITLE" => "N",
+                    "SET_BROWSER_TITLE" => "N",
+                    "SET_META_KEYWORDS" => "N",
+                    "SET_META_DESCRIPTION" => "N",
+                    "SET_LAST_MODIFIED" => "N",
+                    "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                    "ADD_SECTIONS_CHAIN" => "N",
+                    "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                    "PARENT_SECTION" => "",
+                    "PARENT_SECTION_CODE" => "kodnt",
+                    "INCLUDE_SUBSECTIONS" => "Y",
+                    "DISPLAY_DATE" => "Y",
+                    "DISPLAY_NAME" => "Y",
+                    "DISPLAY_PICTURE" => "Y",
+                    "DISPLAY_PREVIEW_TEXT" => "Y",
+                    "PAGER_TEMPLATE" => ".default",
+                    "DISPLAY_TOP_PAGER" => "N",
+                    "DISPLAY_BOTTOM_PAGER" => "N",
+                    "PAGER_TITLE" => "Новости",
+                    "PAGER_SHOW_ALWAYS" => "N",
+                    "PAGER_DESC_NUMBERING" => "N",
+                    "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                    "PAGER_SHOW_ALL" => "N",
+                    "PAGER_BASE_LINK_ENABLE" => "N",
+                    "SET_STATUS_404" => "N",
+                    "SHOW_404" => "N",
+                    "MESSAGE_404" => ""
+                ),
+                false
+            ); ?>
         </div>
         <form class="vote wrapper" action="#">
-            <div class="vote-title"><img class="vote-title__img" src="<? echo SITE_TEMPLATE_PATH . '/images/vote.png' ?>">
+            <div class="vote-title"><img class="vote-title__img"
+                                         src="<? echo SITE_TEMPLATE_PATH . '/images/vote.png' ?>">
                 <div class="vote-title__desc">
                     Оцените качество проведения Интернет – экспозиции «Вернисаж творчества самодеятельных художников»,
                     лиц с ограничениями жизнедеятельности

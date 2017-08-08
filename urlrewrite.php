@@ -25,10 +25,22 @@ $arUrlRewrite = array(
 		"PATH" => "/deyatelnost/index.php",
 	),
 	array(
+		"CONDITION" => "#^/photo/add/#",
+		"RULE" => "",
+		"ID" => "bitrix:photogallery",
+		"PATH" => "/photo/add/index.php",
+	),
+	array(
 		"CONDITION" => "#^/calendar/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/calendar/index.php",
+	),
+	array(
+		"CONDITION" => "#^/photo/#",
+		"RULE" => "",
+		"ID" => "uw:photogallery",
+		"PATH" => "/photo/index.php",
 	),
 	array(
 		"CONDITION" => "#^/news/#",
