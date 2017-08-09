@@ -63,10 +63,11 @@ $main = ($APPLICATION->GetCurDir() === '/');
         <div class="header-bottom">
             <nav id="ml-menu"></nav>
             <div id="helper"></div>
-            <div class="search">
-                <input class="search__input" placeholder="Поиск">
-                <button class="search__submit"></button>
-            </div>
+            <form class="search" action="/search/index.php" method="post">
+                    <input type="text" id="search-form-text" value="" name="q" class="search__input"
+                           placeholder="Поиск">
+                    <button type="submit" id="input-name" class="search__submit"></button>
+            </form>
             <div class="social">
                 <a class="social__item insta" href="http://www.instagram.com/odntugra86/" target="_blank"></a>
                 <a class="social__item vk" href="http://www.vk.com/to.kultura" target="_blank"></a>

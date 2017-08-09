@@ -7,3 +7,6 @@
 .detail-page-text > p {
     margin: 0 0 1.5rem 0;
 }
+.adm-column {
+    width: 33%;
+}
