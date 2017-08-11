@@ -8,7 +8,7 @@
       const menu = this.where({
         action
       })
-      console.log(action)
+
       return (menu.length)
         ? menu[0].get('name')
         : ''

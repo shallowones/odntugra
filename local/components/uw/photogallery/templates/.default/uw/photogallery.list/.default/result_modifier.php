@@ -3,11 +3,9 @@
 
 foreach ($arResult['items'] as $key => $item) {
     // обрезаем размер изображения
-    if ($pictureId = $item['picture']['id']) {
-        $arResult['items'][$key]['picture']['crop'] = \UW\Tools::getResizeImage(
-            $pictureId,
-            370,
-            330
-        );
-    }
+    $arResult['items'][$key]['picture']['crop'] = \UW\Tools::getResizeImage(
+        $item['picture']['id'],
+        370,
+        330
+    );
 }

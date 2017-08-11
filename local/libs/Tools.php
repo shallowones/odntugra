@@ -2,6 +2,9 @@
 
 namespace UW;
 
+use Bitrix\Main\Application;
+use Bitrix\Main\Config\Option;
+
 class Tools
 {
     /**
@@ -10,7 +13,17 @@ class Tools
     const TARGET_NAME_SEARCH = 'search';
 
     /**
-     * Метод обрезает изображение до переданных ему размеров
+     * Наименование файла заглушки в базе данных
+     */
+    const CONFIG_NO_PHOTO = 'no-photo';
+
+    /**
+     * Наименование модуля "Информационные блоки"
+     */
+    const MODULE_IBLOCK = 'iblock';
+
+    /**
+     * Метод обрезает изображение до переданных ему размеров или возвращает заглушку указанного размера
      * @param $pictureId
      * @param $width
      * @param $height
@@ -18,8 +31,20 @@ class Tools
      */
     public static function getResizeImage($pictureId, $width, $height)
     {
+        if ($pictureId) {
+            $fileId = $pictureId;
+        } elseif ($option = Option::get(self::MODULE_IBLOCK, self::CONFIG_NO_PHOTO)) {
+            $fileId = $option;
+        } else {
+            $fileId = \CFile::SaveFile(
+                \CFile::MakeFileArray(Application::getDocumentRoot() . SITE_TEMPLATE_PATH . '/images/no-photo.png'),
+                self::MODULE_IBLOCK
+            );
+            Option::set(self::MODULE_IBLOCK, self::CONFIG_NO_PHOTO, $fileId);
+        }
+
         $image = \CFile::ResizeImageGet(
-            $pictureId,
+            $fileId,
             [
                 'width' => $width,
                 'height' => $height

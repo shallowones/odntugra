@@ -2,11 +2,9 @@
 /** @var array $arResult */
 
 foreach ($arResult['ITEMS'] as $key => $item) {
-    if ($path = $item['PREVIEW_PICTURE']['SRC']) {
-        $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
-            $item['PREVIEW_PICTURE']['ID'],
-            'auto',
-            112
-        );
-    }
+    $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
+        $item['PREVIEW_PICTURE']['ID'],
+        'auto',
+        112
+    );
 }

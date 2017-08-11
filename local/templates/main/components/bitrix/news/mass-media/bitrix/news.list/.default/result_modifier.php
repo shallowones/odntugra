@@ -3,13 +3,11 @@
 
 foreach ($arResult['ITEMS'] as $key => $item) {
     // обрезаем размер изображения
-    if ($pictureId = $item['PREVIEW_PICTURE']['ID']) {
-        $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
-            $pictureId,
-            270,
-            160
-        );
-    }
+    $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
+        $item['PREVIEW_PICTURE']['ID'],
+        270,
+        160
+    );
 
     // обрезаем длину текста описания (max - 3 строки)
     if ($text = $item['PREVIEW_TEXT']) {

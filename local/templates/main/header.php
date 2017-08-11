@@ -31,7 +31,8 @@ $page = [
     'meta' => [
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
         '<meta name="apple-mobile-web-app-capable" content="yes">',
-        '<meta name="apple-mobile-web-app-status-bar-style" content="black">'
+        '<meta name="apple-mobile-web-app-status-bar-style" content="black">',
+        '<link rel="shortcut icon" href="' . SITE_TEMPLATE_PATH . '/favicon.ico" type="image/x-icon">'
     ]
 ];
 foreach ($page['css'] as $css) {
@@ -145,9 +146,9 @@ $main = ($APPLICATION->GetCurDir() === '/');
                 </div>
             </div>
             <div class="text-center">
-                <a class="slow" href="#">Версия для слабовидящих</a>
+                <a href="#" class="slow">Версия для слабовидящих</a>
                 <br><br>
-                <a href="#">Старая версия сайта</a>
+                <a href="#" class="old-version">Старая версия сайта</a>
             </div>
         </div>
     </header>

@@ -2,13 +2,11 @@
 /** @var array $arResult */
 
 // обрезаем размер изображения
-if ($pictureId = $arResult['PREVIEW_PICTURE']['ID']) {
-    $arResult['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
-        $pictureId,
-        470,
-        'auto'
-    );
-}
+$arResult['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
+    $arResult['PREVIEW_PICTURE']['ID'],
+    470,
+    'auto'
+);
 
 // переводим дату в нижний регистр
 $arResult['DATE'] = strtolower($arResult['DISPLAY_ACTIVE_FROM']);

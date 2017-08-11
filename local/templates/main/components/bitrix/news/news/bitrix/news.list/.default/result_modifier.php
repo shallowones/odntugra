@@ -3,18 +3,21 @@
 
 foreach ($arResult['ITEMS'] as $key => $item) {
     // обрезаем размер изображения
-    if ($pictureId = $item['PREVIEW_PICTURE']['ID']) {
-        $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
-            $pictureId,
-            270,
-            160
-        );
-    }
+    $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
+        $item['PREVIEW_PICTURE']['ID'],
+        270,
+        160
+    );
+
 
     // обрезаем длину текста описания (max - 3 строки)
-    if ($text = $item['PREVIEW_TEXT']) {
-        $arResult['ITEMS'][$key]['PREVIEW_CROP_TEXT'] = TruncateText($text, 140);
+    $cropText = '';
+    if ($item['PREVIEW_TEXT']) {
+        $cropText = $item['PREVIEW_TEXT'];
+    } elseif ($item['DETAIL_TEXT']) {
+        $cropText = $item['DETAIL_TEXT'];
     }
+    $arResult['ITEMS'][$key]['PREVIEW_CROP_TEXT'] = TruncateText($cropText, 140);
 
     // переводим дату в нижний регистр
     $arResult['ITEMS'][$key]['DATE'] = strtolower($arResult['ITEMS'][$key]['DISPLAY_ACTIVE_FROM']);
