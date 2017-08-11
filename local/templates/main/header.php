@@ -63,17 +63,17 @@ $main = ($APPLICATION->GetCurDir() === '/');
         <div class="header-bottom">
             <nav id="ml-menu"></nav>
             <div id="helper"></div>
-            <form class="search" action="/search/index.php" method="post">
-                    <input type="text" id="search-form-text" value="" name="q" class="search__input"
-                           placeholder="Поиск">
-                    <button type="submit" id="input-name" class="search__submit"></button>
+            <form class="search" action="/search/">
+                <input
+                        id="search-form-text"
+                        value="<? $APPLICATION->ShowViewContent(\UW\Tools::TARGET_NAME_SEARCH) ?>"
+                        name="q"
+                        class="search__input"
+                        placeholder="Поиск"
+                />
+                <button id="input-name" class="search__submit"></button>
             </form>
             <div class="social">
-                <a class="social__item insta" href="http://www.instagram.com/odntugra86/" target="_blank"></a>
-                <a class="social__item vk" href="http://www.vk.com/to.kultura" target="_blank"></a>
-                <a class="social__item ok" href="http://www.ok.ru/odntugra86" target="_blank"></a>
-            </div>
-            <div class="contacts">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     ".default",
@@ -83,10 +83,66 @@ $main = ($APPLICATION->GetCurDir() === '/');
                         "AREA_FILE_RECURSIVE" => "",
                         "EDIT_TEMPLATE" => "",
                         "COMPONENT_TEMPLATE" => ".default",
-                        "PATH" => SITE_TEMPLATE_PATH . "/include/contacts.html"
+                        "PATH" => SITE_TEMPLATE_PATH . "/include/contacts-social.html"
                     ),
                     false
                 ); ?>
+            </div>
+            <div class="contacts">
+                <div class="contacts-line">
+                    <div class="contacts-line__item">ПРИЕМНАЯ:</div>
+                    <div class="contacts-line__item">
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            ".default",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "AREA_FILE_RECURSIVE" => "",
+                                "EDIT_TEMPLATE" => "",
+                                "COMPONENT_TEMPLATE" => ".default",
+                                "PATH" => SITE_TEMPLATE_PATH . "/include/contacts-reception.html"
+                            ),
+                            false
+                        ); ?>
+                    </div>
+                </div>
+                <div class="contacts-line">
+                    <div class="contacts-line__item">ТЕЛЕФОН:</div>
+                    <div class="contacts-line__item">
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            ".default",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "AREA_FILE_RECURSIVE" => "",
+                                "EDIT_TEMPLATE" => "",
+                                "COMPONENT_TEMPLATE" => ".default",
+                                "PATH" => SITE_TEMPLATE_PATH . "/include/contacts-phone.html"
+                            ),
+                            false
+                        ); ?>
+                    </div>
+                </div>
+                <div class="contacts-line">
+                    <div class="contacts-line__item">E-MAIL:</div>
+                    <div class="contacts-line__item">
+                        <? $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            ".default",
+                            array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "AREA_FILE_RECURSIVE" => "",
+                                "EDIT_TEMPLATE" => "",
+                                "COMPONENT_TEMPLATE" => ".default",
+                                "PATH" => SITE_TEMPLATE_PATH . "/include/contacts-email.html"
+                            ),
+                            false
+                        ); ?>
+                    </div>
+                </div>
             </div>
             <div class="text-center">
                 <a class="slow" href="#">Версия для слабовидящих</a>

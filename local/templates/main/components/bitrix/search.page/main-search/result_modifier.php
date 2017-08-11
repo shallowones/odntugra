@@ -1,5 +1,10 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arResult */
+/** @var CBitrixComponentTemplate $this */
+
+\Bitrix\Main\Loader::includeModule('iblock');
+
+define('TARGET_NAME', 'search');
 
 $arIds = [];
 
@@ -23,3 +28,8 @@ while ($item = $rs->Fetch()) {
     }
 }
 
+if ($arResult['REQUEST']['QUERY']) {
+    $this->SetViewTarget(\UW\Tools::TARGET_NAME_SEARCH);
+    echo $arResult['REQUEST']['QUERY'];
+    $this->EndViewTarget();
+}

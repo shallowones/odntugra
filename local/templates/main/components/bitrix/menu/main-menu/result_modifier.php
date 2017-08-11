@@ -39,8 +39,8 @@ foreach ($arResult as $key => $item) {
             $result[$count]['active'] = false;
         }
 
-        for ($i = count($arResult); $i >= 0; $i--) {
-            $keyPrev = strval($i - $key - 1);
+        for ($i = 0; $i < count($arResult); $i++) {
+            $keyPrev = strval($i + 1);
 
             if (!array_key_exists($keyPrev, $arResult)) {
                 $result[$count]['parentId'] = MAIN;
@@ -49,7 +49,7 @@ foreach ($arResult as $key => $item) {
 
             $prev = $arResult[$keyPrev];
 
-            if ($item['DEPTH_LEVEL'] - 1 === $prev['DEPTH_LEVEL']) {
+            if ($item['DEPTH_LEVEL'] - 1 === $prev['DEPTH_LEVEL'] && $prev['IS_PARENT']) {
                 $result[$count]['parentId'] = $keyPrev;
                 break;
             }

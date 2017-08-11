@@ -15,7 +15,6 @@
       },
       success: (answer) => {
         if (answer) {
-
           const groups = new App.Collections.Groups(JSON.parse(answer), {
             parse: true
           });

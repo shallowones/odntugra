@@ -48,6 +48,20 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	)
+	),
+    Array(
+        "Учреждения КДУ",
+        "/kdu-agency/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/contacts/",
+        Array(),
+        Array(),
+        ""
+    )
 );
 ?>

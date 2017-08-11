@@ -63,4 +63,14 @@ class IBCodes
      * Инфоблок "Администрация"
      */
     const IB_CODE_ADMINISTRATION = 'administration';
+
+    /**
+     * Инфоблок "Опросы"
+     */
+    const IB_CODE_POLLS = 'ib-polls';
+
+    /**
+     * Инфоблок "Опросы"
+     */
+    const IB_CODE_AGENCY = 'agency-kdu';
 }

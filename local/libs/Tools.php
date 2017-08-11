@@ -5,6 +5,11 @@ namespace UW;
 class Tools
 {
     /**
+     * Наименование отложенной функции для поиска
+     */
+    const TARGET_NAME_SEARCH = 'search';
+
+    /**
      * Метод обрезает изображение до переданных ему размеров
      * @param $pictureId
      * @param $width
@@ -48,7 +53,7 @@ class Tools
     }
 
     /**
-     * Метод возвращает первый символьный код первого раздела
+     * Метод возвращает символьный код первого раздела
      * @param $ibId
      * @return string
      */
@@ -96,6 +101,39 @@ class Tools
         }
 
         return $result;
+    }
+
+    /**
+     * Метод устанавливает куку
+     *
+     * @param string $name имя куки
+     * @param string $value значение
+     * @param int $expire срок жизни
+     * @param string $prefix
+     */
+    public static function setCookie($name, $value, $expire = '', $prefix = 'UW')
+    {
+        global $APPLICATION;
+
+        if (empty($expire)) {
+            $expire = false;
+        }
+
+        $APPLICATION->set_cookie($name, $value, $expire, '/', false, false, true, $prefix);
+    }
+
+    /**
+     * Метод читает куку
+     *
+     * @param string $name имя куки
+     * @param string $prefix
+     * @return string
+     */
+    public static function getCookie($name, $prefix = 'UW')
+    {
+        global $APPLICATION;
+
+        return $APPLICATION->get_cookie($name, $prefix);
     }
 
 }

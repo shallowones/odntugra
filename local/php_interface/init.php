@@ -15,7 +15,8 @@ $path = $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/inc/';
 $inc = [
     'gg.php',
     'newsHandler.php',
-    'videosHandler.php'
+    'videosHandler.php',
+    'pollsHandler.php'
 ];
 foreach ($inc as $file) {
     require ($path . $file);

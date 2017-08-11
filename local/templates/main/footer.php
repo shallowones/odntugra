@@ -4,39 +4,20 @@
 
 <? if (!$main): ?>
     </div> <!-- .wrapper-detail -->
-    <form class="vote wrapper" action="#">
-        <div class="vote-title">
-            <img class="vote-title__img" src="<? echo SITE_TEMPLATE_PATH . '/images/vote.png' ?>">
-            <div class="vote-title__desc">
-                Оцените качество проведения Интернет – экспозиции «Вернисаж творчества самодеятельных художников»,
-                лиц с ограничениями жизнедеятельности
-            </div>
-        </div>
-        <div class="vote-radio">
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-0">
-            <label class="vote-radio__label" for="radio-0">Татьяна Николаевна Кривуля</label>
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-1">
-            <label class="vote-radio__label" for="radio-1">Галина Михайловна Галушко</label>
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-2">
-            <label class="vote-radio__label" for="radio-2">Нина Владимировна Халилова</label>
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-3" checked>
-            <label class="vote-radio__label" for="radio-3">Татьяна Николаевна Кривуля</label>
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-4">
-            <label class="vote-radio__label" for="radio-4">солистка Выдрина Юлия (Образцовый художественный
-                коллектив «Театр песни “Экспромт”»)</label>
-            <input class="vote-radio__input" type="radio" name="radio" id="radio-5">
-            <label class="vote-radio__label" for="radio-5">Нина Владимировна Халилова</label>
-        </div>
-        <div class="vote-contrs">
-            <div class="vote-contrs-left">
-                <button class="vote__button">Голосовать</button>
-            </div>
-            <div class="vote-contrs-right">
-                <a class="link" href="#">Смотреть результаты</a>
-                <a class="link" href="#">Старые опросы</a>
-            </div>
-        </div>
-    </form>
+    <? if (!defined('isPolls')): ?>
+        <? $APPLICATION->IncludeComponent(
+            "uw:poll",
+            ".default",
+            array(
+                "IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_POLLS),
+                "COOKIE_NAME" => "POLLS",
+                "POLLS_LINK" => "/about/polls/"
+            ),
+            false
+        ); ?>
+    <? else: ?>
+        <div class="line-for-bottom"></div>
+    <? endif; ?>
 <? endif; ?>
 
 <div class="footer">
