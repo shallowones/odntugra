@@ -11,7 +11,7 @@ $page = [
     ],
     'js' => [
         SITE_TEMPLATE_PATH . '/js/vendor/underscore/underscore.js',
-        SITE_TEMPLATE_PATH . '/js/vendor/jquery/jquery-3.2.1.min.js',
+        SITE_TEMPLATE_PATH . '/js/vendor/jQuery/jquery-3.2.1.min.js',
         SITE_TEMPLATE_PATH . '/js/vendor/backbone/backbone.js',
         SITE_TEMPLATE_PATH . '/js/vendor/swiper/swiper.min.js',
         SITE_TEMPLATE_PATH . '/js/vendor/fancybox/jquery.fancybox.min.js',
