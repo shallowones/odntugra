@@ -10,15 +10,20 @@
     ]
 );
 
-// подключаем дополнительные функции и хэндлеры
-$path = $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/inc/';
-$inc = [
-    'gg.php',
-    'newsHandler.php',
-    'videosHandler.php',
-    'pollsHandler.php'
-];
-/*
-foreach ($inc as $file) {
-    require ($path . $file);
-}*/
+$iAmNeverGonnaUseGlobalVariables = function () {
+    // подключаем дополнительные функции и хэндлеры
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/local/php_interface/inc/';
+    $inc = [
+        'gg.php',
+        'newsHandler.php',
+        'videosHandler.php',
+        'pollsHandler.php'
+    ];
+
+    foreach ($inc as $file) {
+        require ($path . $file);
+    }
+};
+
+$iAmNeverGonnaUseGlobalVariables();
+unset($iAmNeverGonnaUseGlobalVariables);
