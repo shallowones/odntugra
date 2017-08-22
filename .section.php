@@ -1,5 +1,5 @@
 <?
-$sSectionName = "Окружной дом народного творчества";
+$sSectionName = "Главная";
 $arDirProperties = Array(
 
 );

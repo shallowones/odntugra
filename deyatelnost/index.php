@@ -1,6 +1,6 @@
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-/** @global CMain $APPLICATION */
-$APPLICATION->SetTitle("Деятельность");
+
+$APPLICATION->SetTitle("Реестр Коллективов Югры (кду)");
 ?>
 
 <? $APPLICATION->IncludeComponent(

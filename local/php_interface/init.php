@@ -18,6 +18,7 @@ $inc = [
     'videosHandler.php',
     'pollsHandler.php'
 ];
+/*
 foreach ($inc as $file) {
     require ($path . $file);
-}
+}*/

@@ -1,50 +1,36 @@
 <?
 $aMenuLinks = Array(
+    Array(
+        "О нас",
+        "/about/",
+        Array(),
+        Array(),
+        ""
+    ),
 	Array(
-		"Новости", 
-		"/news/", 
+		"Пресс-служба",
+		"/press-sluzhba/",
 		Array(), 
 		Array(), 
 		"" 
 	),
-	Array(
-		"О нас", 
-		"/about/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Фотогалерея", 
-		"/photo/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Видеогалерея", 
-		"/video/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
+    Array(
+        "Деятельность",
+        "/deyatelnost/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Медиа",
+        "/media/",
+        Array(),
+        Array(),
+        ""
+    ),
 	Array(
 		"Проекты и мероприятия", 
 		"/projects-events/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Календарь памятных дат", 
-		"/calendar/history/",
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Публикации в СМИ", 
-		"/smi/", 
 		Array(), 
 		Array(), 
 		"" 

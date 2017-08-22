@@ -159,5 +159,16 @@ $main = ($APPLICATION->GetCurDir() === '/');
     <main class="main">
         <? if (!$main): ?>
         <div class="wrapper-detail">
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"main-breadcrumb", 
+	array(
+		"START_FROM" => "0",
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"COMPONENT_TEMPLATE" => "main-breadcrumb"
+	),
+	false
+);?>
             <h1 class="main-h1"><? $APPLICATION->ShowTitle() ?></h1>
             <? endif; ?>
