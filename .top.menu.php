@@ -1,33 +1,33 @@
 <?
 $aMenuLinks = Array(
-    Array(
-        "О нас",
-        "/about/",
-        Array(),
-        Array(),
-        ""
-    ),
 	Array(
-		"Пресс-служба",
-		"/press-sluzhba/",
+		"О нас", 
+		"/about/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
-    Array(
-        "Деятельность",
-        "/deyatelnost/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Медиа",
-        "/media/",
-        Array(),
-        Array(),
-        ""
-    ),
+	Array(
+		"Пресс-служба", 
+		"/press-sluzhba/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Деятельность", 
+		"/deyatelnost/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Медиа", 
+		"/media/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
 	Array(
 		"Проекты и мероприятия", 
 		"/projects-events/", 
@@ -35,19 +35,19 @@ $aMenuLinks = Array(
 		Array(), 
 		"" 
 	),
-    Array(
-        "Учреждения КДУ",
-        "/kdu-agency/",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Контакты",
-        "/contacts/",
-        Array(),
-        Array(),
-        ""
-    )
+	Array(
+		"Учреждения КДУ", 
+		"/kdu-agency/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
 );
 ?>
