@@ -58,7 +58,8 @@ $filterName = $arParams["FILTER_NAME"];
     <br/>
 <? endif ?>
 
-<? // выводим только те новости, у которых свойство "Закрепить новость" активно
+<? if (empty($GLOBALS[$filterName])):
+// выводим только те новости, у которых свойство "Закрепить новость" активно
 $GLOBALS['filterConsolidate'] = [
     '!PROPERTY_CONSOLIDATE_VALUE' => false
 ];
@@ -119,7 +120,8 @@ $APPLICATION->IncludeComponent(
         "MESSAGE_404" => ""
     ),
     false
-); ?>
+);
+endif; ?>
 
 <? // выводим только те новости, у которых свойство "Закрепить новость" не активно
 $GLOBALS['filterNoConsolidate'] = array_merge(

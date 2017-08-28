@@ -37,6 +37,7 @@ $APPLICATION->SetTitle("Публикации в СМИ");
 			1 => "FILES",
 			2 => "PHOTOS",
 			3 => "LINK",
+			4 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -66,6 +67,7 @@ $APPLICATION->SetTitle("Публикации в СМИ");
 		"LIST_PROPERTY_CODE" => array(
 			0 => "",
 			1 => "LINK",
+			2 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -96,7 +98,7 @@ $APPLICATION->SetTitle("Публикации в СМИ");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "mass-media",
-		"SEF_FOLDER" => "/smi/",
+		"SEF_FOLDER" => "/press-sluzhba/smi/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",

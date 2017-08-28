@@ -2,7 +2,6 @@
 
 class CUwStructureDetail extends CBitrixComponent
 {
-
     private function getData()
     {
         $iblockId = $this->arParams['IBLOCK_ID'];
@@ -23,6 +22,7 @@ class CUwStructureDetail extends CBitrixComponent
 
             global $APPLICATION;
             $APPLICATION->SetTitle($section['NAME']);
+            $APPLICATION->AddChainItem($section['NAME'], $this->arParams['LINK']);
         }
 
         $rs = \CIBlockElement::GetList(

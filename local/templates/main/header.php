@@ -48,6 +48,7 @@ foreach ($page['meta'] as $meta) {
 global $USER;
 $isAdmin = $USER->IsAdmin();
 $main = ($APPLICATION->GetCurDir() === '/');
+$detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
 ?>
 <!DOCTYPE html>
 <html lang="<? echo LANGUAGE_ID ?>">
@@ -158,17 +159,17 @@ $main = ($APPLICATION->GetCurDir() === '/');
     </div>
     <main class="main">
         <? if (!$main): ?>
-        <div class="wrapper-detail">
-            <?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"main-breadcrumb", 
-	array(
-		"START_FROM" => "0",
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"COMPONENT_TEMPLATE" => "main-breadcrumb"
-	),
-	false
-);?>
+        <div class="<? echo $detailWrapClass ?>">
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:breadcrumb",
+                "main-breadcrumb",
+                array(
+                    "START_FROM" => "0",
+                    "PATH" => "",
+                    "SITE_ID" => "s1",
+                    "COMPONENT_TEMPLATE" => "main-breadcrumb"
+                ),
+                false
+            ); ?>
             <h1 class="main-h1"><? $APPLICATION->ShowTitle() ?></h1>
             <? endif; ?>

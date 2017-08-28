@@ -1,5 +1,7 @@
+'use strict';
+
 (function (App, Model) {
-  'use strict'
+  'use strict';
 
   App.Models.Item = Model.extend({
     defaults: {
@@ -9,14 +11,13 @@
       selected: false
     },
 
-    parse (attrs) {
+    parse: function parse(attrs) {
       return {
         name: attrs.name || '',
         action: attrs.action || '',
         link: attrs.link || '',
         selected: attrs.selected || false
-      }
+      };
     }
-  })
-
-}(App, Backbone.Model))
+  });
+})(App, Backbone.Model);

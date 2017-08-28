@@ -95,7 +95,7 @@ $APPLICATION->SetTitle("Календарь памятных дат");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "calendar",
-		"SEF_FOLDER" => "/calendar/",
+		"SEF_FOLDER" => "/deyatelnost/calendar/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "#SECTION_CODE#/",

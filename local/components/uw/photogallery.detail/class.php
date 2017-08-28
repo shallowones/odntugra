@@ -16,6 +16,7 @@ class CUwPhotogalleryDetail extends CBitrixComponent
         if ($section = $rs->Fetch()) {
             global $APPLICATION;
             $APPLICATION->SetTitle($section['NAME']);
+            $APPLICATION->AddChainItem($section['NAME']);
         }
 
         $rs = \CIBlockElement::GetList(

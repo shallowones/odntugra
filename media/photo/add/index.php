@@ -21,7 +21,7 @@ if (!$isAdmin) LocalRedirect('/photo/');
 		"DRAG_SORT" => "Y",
 		"USE_COMMENTS" => "N",
 		"SEF_MODE" => "Y",
-		"SEF_FOLDER" => "/photo/add/",
+		"SEF_FOLDER" => "/media/photo/add/",
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"DATE_TIME_FORMAT_DETAIL" => "d.m.Y",

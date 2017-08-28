@@ -39,8 +39,8 @@ foreach ($arResult as $key => $item) {
             $result[$count]['active'] = false;
         }
 
-        for ($i = 0; $i < count($arResult); $i++) {
-            $keyPrev = strval($i + 1);
+        for ($i = $key - 1; $i < count($arResult); $i--) {
+            $keyPrev = strval($i);
 
             if (!array_key_exists($keyPrev, $arResult)) {
                 $result[$count]['parentId'] = MAIN;
@@ -62,8 +62,10 @@ foreach ($arResult as $key => $item) {
             if (!array_key_exists($i, $arResult)) break;
 
             $next = $arResult[$i];
+            if ($item['DEPTH_LEVEL'] + 1 === $next['DEPTH_LEVEL'] &&
+                $itemIndex === $next['ITEM_INDEX'] &&
+                strpos($next['LINK'], $item['LINK']) !== false) {
 
-            if ($item['DEPTH_LEVEL'] + 1 === $next['DEPTH_LEVEL'] && $itemIndex === $next['ITEM_INDEX']) {
                 if ($next['IS_PARENT']) {
                     $result[$count]['items'][] = [
                         'name' => $next['TEXT'],
@@ -97,5 +99,5 @@ foreach ($result as $keyParent => $parent) {
         }
     }
 }
-
+//gg($result);
 $arResult['JSON'] = json_encode($result);

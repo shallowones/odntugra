@@ -1,26 +1,24 @@
+'use strict';
+
 (function (App, View) {
-  'use strict'
+  'use strict';
 
   App.Views.ItemLink = View.extend({
     tagName: 'a',
     className: 'nav__item',
 
-    render () {
-      const $this = this
+    render: function render() {
+      var $this = this;
 
-      $this.$el
-        .text($this.model.get('name'))
+      $this.$el.text($this.model.get('name'));
 
       if (!$this.model.get('selected')) {
-        $this.$el
-          .attr('href', $this.model.get('link'))
+        $this.$el.attr('href', $this.model.get('link'));
       } else {
-        $this.$el
-          .addClass('checked')
+        $this.$el.addClass('checked');
       }
 
-      return $this
+      return $this;
     }
-  })
-
-}(App, Backbone.View))
+  });
+})(App, Backbone.View);

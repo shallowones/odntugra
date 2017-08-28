@@ -12,7 +12,8 @@ $this->setFrameMode(true);
     [
         'IBLOCK_ID' => $arParams['IBLOCK_ID'],
         'SECTION_CODE' => $arResult['VARIABLES']['SECTION_CODE'],
-        'VACANCY_LINK' => $arParams['VACANCY_LINK']
+        'VACANCY_LINK' => $arParams['VACANCY_LINK'],
+        'LINK' => $arResult['FOLDER'] . $arResult['VARIABLES']['SECTION_CODE'] . '/'
     ],
     $component
 ); ?>

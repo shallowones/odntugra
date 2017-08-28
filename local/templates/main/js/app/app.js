@@ -1,10 +1,11 @@
+'use strict';
+
 (function (exports) {
-  'use strict'
+  'use strict';
 
   exports.App = {
     Models: {},
     Views: {},
     Collections: {}
-  }
-
-}(window))
+  };
+})(window);

@@ -7,6 +7,30 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/archive/index.php",
 	),
 	array(
+		"CONDITION" => "#^/deyatelnost/calendar/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/deyatelnost/calendar/index.php",
+	),
+	array(
+		"CONDITION" => "#^/press-sluzhba/news/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/press-sluzhba/news/index.php",
+	),
+	array(
+		"CONDITION" => "#^/press-sluzhba/smi/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/press-sluzhba/smi/index.php",
+	),
+	array(
+		"CONDITION" => "#^/media/photo/add/#",
+		"RULE" => "",
+		"ID" => "bitrix:photogallery",
+		"PATH" => "/media/photo/add/index.php",
+	),
+	array(
 		"CONDITION" => "#^/about/structure/#",
 		"RULE" => "",
 		"ID" => "uw:structure",
@@ -19,16 +43,22 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/index.php",
 	),
 	array(
+		"CONDITION" => "#^/about/polls/#",
+		"RULE" => "",
+		"ID" => "uw:polls",
+		"PATH" => "/about/polls/index.php",
+	),
+	array(
 		"CONDITION" => "#^/deyatelnost/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/deyatelnost/index.php",
 	),
 	array(
-		"CONDITION" => "#^/about/polls/#",
+		"CONDITION" => "#^/media/photo/#",
 		"RULE" => "",
-		"ID" => "uw:polls",
-		"PATH" => "/about/polls/index.php",
+		"ID" => "uw:photogallery",
+		"PATH" => "/media/photo/index.php",
 	),
 	array(
 		"CONDITION" => "#^/photo/add/#",

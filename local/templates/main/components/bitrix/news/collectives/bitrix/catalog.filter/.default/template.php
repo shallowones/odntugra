@@ -1,24 +1,20 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-/** @var array $arParams */
 /** @var array $arResult */
-/** @global CMain $APPLICATION */
-/** @global CUser $USER */
-/** @global CDatabase $DB */
-/** @var CBitrixComponentTemplate $this */
-/** @var string $templateName */
-/** @var string $templateFile */
-/** @var string $templateFolder */
-/** @var string $componentPath */
-/** @var CBitrixComponent $component */
-$this->setFrameMode(true);
 ?>
 
-<form class="filter" action="<? echo $arResult['FORM_ACTION'] ?>" name="<? echo $arResult['FILTER_NAME'] . "_form" ?>" method="post">
-    <div class="filter-left">
-        <? foreach ($arResult['ITEMS'] as $item): ?>
-            <div>
-                <label class="filter-block__label" for="<? echo $item['NAME'] ?>"><? echo $item['NAME'] ?></label>
-                <? echo $item['INPUT'] . '<br><br>' ?>
+<form class="filter" action="<? echo $arResult['FORM_ACTION'] ?>" name="<? echo $arResult['FILTER_NAME'] . "_form" ?>"
+      method="post">
+    <div class="filter-left space-b">
+        <? foreach ($arResult['INPUTS'] as $select): ?>
+            <div class="filter-select-block">
+                <div class="filter-dsc"><? echo $select['LABEL'] ?></div>
+                <select name="<? echo $select['NAME'] ?>" title="<? echo $select['NAME'] ?>" class="filter-select">
+                    <? foreach ($select['LIST'] as $value => $name): ?>
+                        <option value="<? echo $value ?>" <? echo ($value == $select['VALUE']) ? 'selected' : '' ?>>
+                            <? echo $name ?>
+                        </option>
+                    <? endforeach; ?>
+                </select>
             </div>
         <? endforeach; ?>
     </div>

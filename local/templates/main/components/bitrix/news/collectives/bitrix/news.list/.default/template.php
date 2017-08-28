@@ -37,4 +37,6 @@ $this->setFrameMode(true);
     <? if ($arParams['DISPLAY_BOTTOM_PAGER']): ?>
         <? echo $arResult['NAV_STRING'] ?>
     <? endif; ?>
+<? else: ?>
+    <div>Информация отсутствует.</div>
 <? endif; ?>

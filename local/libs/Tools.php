@@ -15,7 +15,7 @@ class Tools
     /**
      * Наименование файла заглушки в базе данных
      */
-    const CONFIG_NO_PHOTO = 'no-photo';
+    const CONFIG_NO_PHOTO = 'no_photo';
 
     /**
      * Наименование модуля "Информационные блоки"
@@ -37,7 +37,7 @@ class Tools
             $fileId = $option;
         } else {
             $fileId = \CFile::SaveFile(
-                \CFile::MakeFileArray(Application::getDocumentRoot() . SITE_TEMPLATE_PATH . '/images/no-photo.png'),
+                \CFile::MakeFileArray(Application::getDocumentRoot() . SITE_TEMPLATE_PATH . '/images/nophoto.png'),
                 self::MODULE_IBLOCK
             );
             Option::set(self::MODULE_IBLOCK, self::CONFIG_NO_PHOTO, $fileId);

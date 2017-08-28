@@ -13,12 +13,19 @@
 $this->setFrameMode(true);
 ?>
 
-<form class="filter" action="<? echo $arResult['FORM_ACTION'] ?>" name="<? echo $arResult['FILTER_NAME'] . "_form" ?>" method="post">
+<form class="filter" action="<? echo $arResult['FORM_ACTION'] ?>" name="<? echo $arResult['FILTER_NAME'] . "_form" ?>"
+      method="post">
     <div class="filter-left">
-        <? foreach ($arResult['ITEMS'] as $item): ?>
-            <div>
-                <label class="filter-block__label" for="<? echo $item['NAME'] ?>"><? echo $item['NAME'] ?></label>
-                <? echo $item['INPUT'] . '<br><br>' ?>
+        <div class="filter-dsc">ПО ДАТЕ</div>
+        <? foreach ($arResult['INPUTS'] as $input): ?>
+            <div class="filter-block">
+                <label class="filter-block__label" for="<? echo $input['NAME'] ?>"><? echo $input['LABEL'] ?></label>
+                <input
+                        class="filter-block__input js-filter-input"
+                        id="<? echo $input['NAME'] ?>"
+                        name="<? echo $input['NAME'] ?>"
+                        value="<? echo $input['VALUE'] ?>"
+                />
             </div>
         <? endforeach; ?>
     </div>

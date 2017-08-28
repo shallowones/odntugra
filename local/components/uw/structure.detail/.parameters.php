@@ -20,5 +20,11 @@ $arComponentParameters = [
             "TYPE" => "STRING",
             "DEFAULT" => ''
         ),
+        "LINK" => array(
+            "PARENT" => "BASE",
+            "NAME" => 'Ссылка на текущий раздел',
+            "TYPE" => "STRING",
+            "DEFAULT" => ''
+        ),
     )
 ];

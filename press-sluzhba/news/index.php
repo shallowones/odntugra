@@ -7,7 +7,7 @@ $APPLICATION->SetTitle("Новости");
 	"bitrix:news", 
 	"news", 
 	array(
-		"ADD_ELEMENT_CHAIN" => "N",
+		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
@@ -96,7 +96,7 @@ $APPLICATION->SetTitle("Новости");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "news",
-		"SEF_FOLDER" => "/news/",
+		"SEF_FOLDER" => "/press-sluzhba/news/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",

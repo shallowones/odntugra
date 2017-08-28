@@ -1,32 +1,30 @@
+'use strict';
+
 (function (App, View) {
-  'use strict'
+  'use strict';
 
   App.Views.ItemButton = View.extend({
     tagName: 'button',
     className: 'nav__item parent',
 
-    render () {
-      const $this = this
+    render: function render() {
+      var $this = this;
 
-      $this.$el
-        .text($this.model.get('name'))
+      $this.$el.text($this.model.get('name'));
 
-      return $this
+      return $this;
     },
+
 
     events: {
       click: 'clickToActive'
     },
 
-    clickToActive () {
-      const
-        $this = this,
-        model = $this.model
+    clickToActive: function clickToActive() {
+      var $this = this,
+          model = $this.model;
 
-      $this.collection
-        .setActiveMenu(model.get('action'))
+      $this.collection.setActiveMenu(model.get('action'));
     }
-
-  })
-
-}(App, Backbone.View))
+  });
+})(App, Backbone.View);

@@ -1,103 +1,92 @@
-(function (App, View) {
-  'use strict'
+'use strict';
 
-  const
-    BackButton = App.Views.BackButton,
-    ItemButton = App.Views.ItemButton,
-    ItemLink = App.Views.ItemLink
+(function (App, View) {
+  'use strict';
+
+  var BackButton = App.Views.BackButton,
+      ItemButton = App.Views.ItemButton,
+      ItemLink = App.Views.ItemLink;
 
   App.Views.Group = View.extend({
     className: 'nav-group',
 
-    initialize (options) {
-      const $this = this
+    initialize: function initialize(options) {
+      var $this = this;
 
-      $this.menu = options.menu || null
+      $this.menu = options.menu || null;
 
-      $this.listenTo($this.model, 'change:active', (modelGroup) => {
+      $this.listenTo($this.model, 'change:active', function (modelGroup) {
         if (modelGroup.get('active')) {
-          $this.changeGroup(modelGroup)
+          $this.changeGroup(modelGroup);
         }
-      })
+      });
     },
-    render () {
-      const $this = this
+    render: function render() {
+      var $this = this;
 
-      const backButton = new BackButton({
+      var backButton = new BackButton({
         model: $this.model,
         collection: $this.collection
-      })
+      });
 
-      $this.$el
-        .append(backButton.render().el)
+      $this.$el.append(backButton.render().el);
 
-      $this.model.get('items').each((modelItem) => {
-        let item
+      $this.model.get('items').each(function (modelItem) {
+        var item = void 0;
 
         if (modelItem.get('action')) {
           item = new ItemButton({
             model: modelItem,
             collection: $this.collection
-          })
+          });
         } else {
           item = new ItemLink({
             model: modelItem
-          })
+          });
         }
 
-        $this.$el
-          .append(item.render().el)
-      })
+        $this.$el.append(item.render().el);
+      });
 
       if ($this.model.get('active')) {
-        $this
-          .addActiveClass()
+        $this.addActiveClass();
 
         if ($this.menu) {
-          $this.menu
-            .setHeight($this.getHeight($this.model))
+          $this.menu.setHeight($this.getHeight($this.model));
         }
       }
 
-      return $this
+      return $this;
     },
-    changeGroup(modelGroup) {
-      const
-        $this = this
+    changeGroup: function changeGroup(modelGroup) {
+      var $this = this;
 
       if ($this.menu) {
-        $this.menu
-          .removeChildActiveClass()
-          .setHeight($this.getHeight(modelGroup))
+        $this.menu.removeChildActiveClass().setHeight($this.getHeight(modelGroup));
       }
 
-      $this
-        .addActiveClass()
+      $this.addActiveClass();
     },
-    addActiveClass () {
-      this.$el
-        .addClass('active')
+    addActiveClass: function addActiveClass() {
+      this.$el.addClass('active');
     },
-    getHeight (modelGroup) {
+    getHeight: function getHeight(modelGroup) {
 
-      const
-        $this = this,
-        helper = $('#helper')
+      var $this = this,
+          helper = $('#helper');
 
-      const group = new App.Views.Group({
+      var group = new App.Views.Group({
         model: modelGroup,
         collection: $this.collection
-      })
+      });
 
-      helper
-        .html(group.render().$el.css({position: 'static'}))
+      helper.html(group.render().$el.css({ position: 'static' }));
 
-      const height = helper.height()
+      var height = helper.height();
 
-      helper.html('')
+      helper.html('');
 
-      return height
+      return height;
     }
-  })
-
-}(App, Backbone.View))
+  });
+})(App, Backbone.View);

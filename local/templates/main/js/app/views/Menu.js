@@ -1,44 +1,39 @@
-(function (App, View) {
-  'use strict'
+'use strict';
 
-  const
-    Group = App.Views.Group
+(function (App, View) {
+  'use strict';
+
+  var Group = App.Views.Group;
 
   App.Views.Menu = View.extend({
     className: 'nav',
 
-    render () {
-      const $this = this
+    render: function render() {
+      var $this = this;
 
-      $this.collection.each((modelGroup) => {
-        const group = new Group({
+      $this.collection.each(function (modelGroup) {
+        var group = new Group({
           model: modelGroup,
           collection: $this.collection,
           menu: $this
-        })
+        });
 
-        $this.$el
-          .append(group.render().$el)
-      })
+        $this.$el.append(group.render().$el);
+      });
 
-      return $this
+      return $this;
     },
+    setHeight: function setHeight(height) {
+      this.$el.animate({ height: height }, 300);
 
-    setHeight (height) {
-      this.$el
-        .animate({height}, 300)
-
-      return this
+      return this;
     },
-    removeChildActiveClass () {
-      this.$el
-        .find('.nav-group').each(function () {
-          $(this)
-            .removeClass('active')
-      })
+    removeChildActiveClass: function removeChildActiveClass() {
+      this.$el.find('.nav-group').each(function () {
+        $(this).removeClass('active');
+      });
 
-      return this
+      return this;
     }
-  })
-
-}(App, Backbone.View))
+  });
+})(App, Backbone.View);
