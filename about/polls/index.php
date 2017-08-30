@@ -1,4 +1,4 @@
-<? define('isPolls', true);
+<? define('isPolls', true); define('FULL_WRAP', true);
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 /** @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Опросы");

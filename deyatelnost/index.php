@@ -1,4 +1,5 @@
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+<? define('FULL_WRAP', true);
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 /** @global $APPLICATION */
 $APPLICATION->SetTitle("Реестр Коллективов Югры (кду)");
 ?>
@@ -104,7 +105,7 @@ $APPLICATION->SetTitle("Реестр Коллективов Югры (кду)");
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "#SECTION_CODE#/",
-			"detail" => "",
+			"detail" => "#SECTION_CODE#/#ELEMENT_ID#/",
 		)
 	),
 	false

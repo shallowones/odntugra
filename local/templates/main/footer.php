@@ -2,7 +2,7 @@
 /** @global CMain $APPLICATION */
 ?>
 
-<? if (!$main): ?>
+<? if (!$main /*&& !$bool404*/): ?>
     </div> <!-- .wrapper-detail -->
     <? if (!defined('isPolls')): ?>
         <? $APPLICATION->IncludeComponent(

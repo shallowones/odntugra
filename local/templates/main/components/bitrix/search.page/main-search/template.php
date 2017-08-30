@@ -130,15 +130,6 @@ $this->setFrameMode(true);
         </div>
         <? if ($arParams["DISPLAY_BOTTOM_PAGER"] != "N") echo $arResult["NAV_STRING"] ?>
         <br/>
-        <p>
-            <? if ($arResult["REQUEST"]["HOW"] == "d"): ?>
-                <a href="<?= $arResult["URL"] ?>&amp;how=r<? echo $arResult["REQUEST"]["FROM"] ? '&amp;from=' . $arResult["REQUEST"]["FROM"] : '' ?><? echo $arResult["REQUEST"]["TO"] ? '&amp;to=' . $arResult["REQUEST"]["TO"] : '' ?>"><?= GetMessage("SEARCH_SORT_BY_RANK") ?></a>&nbsp;|&nbsp;
-                <b><?= GetMessage("SEARCH_SORTED_BY_DATE") ?></b>
-            <? else: ?>
-                <b><?= GetMessage("SEARCH_SORTED_BY_RANK") ?></b>&nbsp;|&nbsp;<a
-                        href="<?= $arResult["URL"] ?>&amp;how=d<? echo $arResult["REQUEST"]["FROM"] ? '&amp;from=' . $arResult["REQUEST"]["FROM"] : '' ?><? echo $arResult["REQUEST"]["TO"] ? '&amp;to=' . $arResult["REQUEST"]["TO"] : '' ?>"><?= GetMessage("SEARCH_SORT_BY_DATE") ?></a>
-            <? endif; ?>
-        </p>
     <? else: ?>
         <? ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND")); ?>
     <? endif; ?>

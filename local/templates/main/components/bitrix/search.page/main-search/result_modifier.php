@@ -23,7 +23,8 @@ $rs = \CIBlockElement::GetList(
 while ($item = $rs->Fetch()) {
     foreach ($arResult['SEARCH'] as $key => $arItem) {
         if ($arItem['ITEM_ID'] === $item['ID']) {
-            $arResult['SEARCH'][$key]['PREVIEW_PICTURE'] = \CFile::GetFileArray($item['PREVIEW_PICTURE'])['SRC'];
+            $arResult['SEARCH'][$key]['PREVIEW_PICTURE'] =
+                \UW\Tools::getResizeImage($item['PREVIEW_PICTURE'], 270, 160);
         }
     }
 }
@@ -33,3 +34,6 @@ if ($arResult['REQUEST']['QUERY']) {
     echo $arResult['REQUEST']['QUERY'];
     $this->EndViewTarget();
 }
+
+global $APPLICATION;
+$APPLICATION->AddChainItem('Поиск');

@@ -1,4 +1,4 @@
-<?
+<? define('FULL_WRAP', true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Сохранение и развитие самодеятельного народного творчества");
 ?>

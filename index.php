@@ -68,7 +68,7 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
     false
 ); ?>
     <div class="wrapper">
-        <h1 class="main-h1">Новости<a class="link" href="/news/">Все новости</a></h1>
+        <h1 class="main-h1">Новости<a class="link" href="/press-sluzhba/news/">Все новости</a></h1>
         <? // выводим только те новости, у которых свойство "Закрепить новость" активно
         $GLOBALS['filterConsolidate'] = [
             '!PROPERTY_CONSOLIDATE_VALUE' => false
@@ -193,7 +193,7 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
             ),
             false
         ); ?>
-        <a class="mobile-more" href="#">ВСЕ НОВОСТИ</a>
+        <a class="mobile-more" href="/press-sluzhba/news/">ВСЕ НОВОСТИ</a>
     </div>
     <div class="blue">
         <div class="wrapper">
@@ -270,7 +270,7 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
         </div>
     </div>
     <div class="wrapper photo">
-        <h1 class="main-h1">Фотогалерея<a class="link" href="/photo/">Все фотографии</a></h1>
+        <h1 class="main-h1">Фотогалерея<a class="link" href="/media/photo/">Все фотографии</a></h1>
         <? $APPLICATION->IncludeComponent(
             'uw:photogallery.list',
             '.default',
@@ -280,7 +280,7 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
             ],
             false
         ); ?>
-        <a class="mobile-more" href="/photo/">ВСЕ ФОТОГРАФИИ</a>
+        <a class="mobile-more" href="/media/photo/">ВСЕ ФОТОГРАФИИ</a>
     </div>
     <div class="blue-second">
         <div class="wrapper">

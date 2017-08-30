@@ -20,13 +20,6 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
-	),
-	Array(
-		"Опросы", 
-		"/about/polls/", 
-		Array(), 
-		Array(), 
-		"" 
 	)
 );
 ?>

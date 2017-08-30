@@ -4,8 +4,8 @@
 // обрезаем размер изображения
 $arResult['PREVIEW_PICTURE']['CROP_SRC'] = \UW\Tools::getResizeImage(
     $arResult['PREVIEW_PICTURE']['ID'],
-    470,
-    'auto'
+    270,
+    160
 );
 
 // переводим дату в нижний регистр

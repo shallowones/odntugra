@@ -3,13 +3,13 @@
 
 $asset = Bitrix\Main\Page\Asset::getInstance();
 $page = [
-    'css' => [
+    'addCss' => [
         'https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i|Open+Sans:400,400i,600,600i,700,700i',
         SITE_TEMPLATE_PATH . '/js/vendor/swiper/swiper.min.css',
         SITE_TEMPLATE_PATH . '/js/vendor/fancybox/jquery.fancybox.min.css',
         SITE_TEMPLATE_PATH . '/css/main.css'
     ],
-    'js' => [
+    'addJs' => [
         SITE_TEMPLATE_PATH . '/js/vendor/underscore/underscore.js',
         SITE_TEMPLATE_PATH . '/js/vendor/jQuery/jquery-3.2.1.min.js',
         SITE_TEMPLATE_PATH . '/js/vendor/backbone/backbone.js',
@@ -28,27 +28,22 @@ $page = [
         SITE_TEMPLATE_PATH . '/js/vendor/mlmenu/mlmenu.js',
         SITE_TEMPLATE_PATH . '/js/app/main.js'
     ],
-    'meta' => [
+    'addString' => [
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
         '<meta name="apple-mobile-web-app-capable" content="yes">',
         '<meta name="apple-mobile-web-app-status-bar-style" content="black">',
         '<link rel="shortcut icon" href="' . SITE_TEMPLATE_PATH . '/favicon.ico" type="image/x-icon">'
     ]
 ];
-foreach ($page['css'] as $css) {
-    $asset->addCss($css);
-}
-foreach ($page['js'] as $js) {
-    $asset->addJs($js);
-}
-foreach ($page['meta'] as $meta) {
-    $asset->addString($meta);
+foreach ($page as $method => $params) {
+    array_map([$asset, $method], $params);
 }
 
 global $USER;
 $isAdmin = $USER->IsAdmin();
 $main = ($APPLICATION->GetCurDir() === '/');
 $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
+//$bool404 = defined('AUTH_404');
 ?>
 <!DOCTYPE html>
 <html lang="<? echo LANGUAGE_ID ?>">
@@ -149,7 +144,7 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
             <div class="text-center">
                 <a href="#" class="slow">Версия для слабовидящих</a>
                 <br><br>
-                <a href="#" class="old-version">Старая версия сайта</a>
+                <a href="http://www.to-kultura.ru/" class="old-version" target="_blank">Старая версия сайта</a>
             </div>
         </div>
     </header>
@@ -158,7 +153,7 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
         <a class="header-mobile__logo" href="/"></a>
     </div>
     <main class="main">
-        <? if (!$main): ?>
+        <? if (!$main /*&& !$bool404*/): ?>
         <div class="<? echo $detailWrapClass ?>">
             <? $APPLICATION->IncludeComponent(
                 "bitrix:breadcrumb",
