@@ -8,29 +8,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Реестр клубных формирований Окружного Дома народного творчества", 
-		"/deyatelnost/list/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Реестр Коллективов Югры (кду)", 
-		"/deyatelnost/kdu/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Коллективы Окружного Дома народного творчества", 
-		"/deyatelnost/kodnt/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Календарь памятных дат", 
-		"/deyatelnost/calendar/",
+		"/deyatelnost/calendar/", 
 		Array(), 
 		Array(), 
 		"" 
