@@ -43,7 +43,6 @@ global $USER;
 $isAdmin = $USER->IsAdmin();
 $main = ($APPLICATION->GetCurDir() === '/');
 $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
-//$bool404 = defined('AUTH_404');
 ?>
 <!DOCTYPE html>
 <html lang="<? echo LANGUAGE_ID ?>">
@@ -56,7 +55,7 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
     <div class="bx-panel"><? $APPLICATION->ShowPanel() ?></div>
     <div class="page-overlay"></div>
     <header class="header">
-        <a class="header-logo" href="/"></a>
+        <a class="header-logo" href="/"><i class="logo"></i></a>
         <div class="header-bottom">
             <nav id="ml-menu"></nav>
             <div id="helper"></div>

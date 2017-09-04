@@ -1,11 +1,1 @@
-'use strict';
-
-(function (exports) {
-  'use strict';
-
-  exports.App = {
-    Models: {},
-    Views: {},
-    Collections: {}
-  };
-})(window);
+"use strict";window.App={Models:{},Views:{},Collections:{}};

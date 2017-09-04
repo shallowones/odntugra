@@ -1,17 +1,1 @@
-'use strict';
-
-(function (App, Collection) {
-  'use strict';
-
-  App.Collections.Items = Collection.extend({
-    model: App.Models.Item,
-
-    getName: function getName(action) {
-      var menu = this.where({
-        action: action
-      });
-
-      return menu.length ? menu[0].get('name') : '';
-    }
-  });
-})(App, Backbone.Collection);
+"use strict";!function(e,t){e.Collections.Items=t.extend({model:e.Models.Item,getName:function(e){var t=this.where({action:e});return t.length?t[0].get("name"):""}})}(App,Backbone.Collection);
