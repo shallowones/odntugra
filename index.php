@@ -1,4 +1,6 @@
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
+<?
+define("X_HOME_PAGE", "Y");
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 /** @global CMain $APPLICATION */
 $APPLICATION->SetTitle("Окружной дом народного творчества");
 ?>
@@ -132,13 +134,13 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
             false
         ); ?>
         <? // выводим только те новости, у которых свойство "Закрепить новость" не активно
-        $GLOBALS['filterNoConsolidate'] = [
+    $GLOBALS['filterNoConsolidate'] = [
             '=PROPERTY_CONSOLIDATE_VALUE' => false
         ];
         $APPLICATION->IncludeComponent(
             "bitrix:news.list",
             "news-list",
-            array(
+            Array(
                 "COMPONENT_TEMPLATE" => "news-list",
                 "IBLOCK_TYPE" => "content",
                 "IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_NEWS),
@@ -190,10 +192,9 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
                 "SET_STATUS_404" => "N",
                 "SHOW_404" => "N",
                 "MESSAGE_404" => ""
-            ),
-            false
-        ); ?>
-        <a class="mobile-more" href="/press-sluzhba/news/">ВСЕ НОВОСТИ</a>
+	)
+);?>
+<!--        <a class="mobile-more" href="/press-sluzhba/news/">ВСЕ НОВОСТИ</a>-->
     </div>
     <div class="blue">
         <div class="wrapper">

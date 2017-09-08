@@ -1,6 +1,10 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @global CMain $APPLICATION */
-
+if ($_REQUEST['slow_vision'] === 'Y')
+{
+    $_SESSION['slow_vision'] = 'Y';
+    LocalRedirect($APPLICATION->GetCurDir());
+}
 $asset = Bitrix\Main\Page\Asset::getInstance();
 $page = [
     'addCss' => [
@@ -141,7 +145,7 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
                 </div>
             </div>
             <div class="text-center">
-                <a href="#" class="slow">Версия для слабовидящих</a>
+                <a href="/?slow_vision=Y" class="slow">Версия для слабовидящих</a>
                 <br><br>
                 <a href="http://www.to-kultura.ru/" class="old-version" target="_blank">Старая версия сайта</a>
             </div>
