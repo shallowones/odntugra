@@ -46,5 +46,5 @@ $this->setFrameMode(true);
         <?endforeach; ?>
     </div>
 <? endif; ?>
-
-<hr class="hr">
+<br>
+<div class="bottom-line"></div>

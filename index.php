@@ -194,7 +194,7 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
                 "MESSAGE_404" => ""
 	)
 );?>
-<!--        <a class="mobile-more" href="/press-sluzhba/news/">ВСЕ НОВОСТИ</a>-->
+        <a class="mobile-more" href="/press-sluzhba/news/">ВСЕ НОВОСТИ</a>
     </div>
     <div class="blue">
         <div class="wrapper">
@@ -270,19 +270,21 @@ $APPLICATION->SetTitle("Окружной дом народного творче�
             <a class="mobile-more" href="/projects-events/">ВСЕ МЕРОПРИЯТИЯ</a>
         </div>
     </div>
-    <div class="wrapper photo">
-        <h1 class="main-h1">Фотогалерея<a class="link" href="/media/photo/">Все фотографии</a></h1>
-        <? $APPLICATION->IncludeComponent(
-            'uw:photogallery.list',
-            '.default',
-            [
-                'IBLOCK_ID' => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_PHOTO),
-                'DETAIL' => '/photo/#SECTION_ID#/'
-            ],
-            false
-        ); ?>
-        <a class="mobile-more" href="/media/photo/">ВСЕ ФОТОГРАФИИ</a>
-    </div>
+    <?if($_SESSION['slow_vision'] === 'N'):?>
+        <div class="wrapper photo">
+            <h1 class="main-h1">Фотогалерея<a class="link" href="/media/photo/">Все фотографии</a></h1>
+            <? $APPLICATION->IncludeComponent(
+                'uw:photogallery.list',
+                '.default',
+                [
+                    'IBLOCK_ID' => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_PHOTO),
+                    'DETAIL' => '/photo/#SECTION_ID#/'
+                ],
+                false
+            ); ?>
+            <a class="mobile-more" href="/media/photo/">ВСЕ ФОТОГРАФИИ</a>
+        </div>
+    <?endif;?>
     <div class="blue-second">
         <div class="wrapper">
             <h1 class="main-h1">Коллективы ОДНТ</h1>

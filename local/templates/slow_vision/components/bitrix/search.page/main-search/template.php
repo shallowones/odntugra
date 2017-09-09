@@ -80,26 +80,14 @@ $this->setFrameMode(true);
     <? elseif (count($arResult["SEARCH"]) > 0): ?>
         <? if ($arParams["DISPLAY_TOP_PAGER"] != "N") echo $arResult["NAV_STRING"] ?>
         <br/>
-        <div class="list">
+        <div  >
             <? foreach ($arResult["SEARCH"] as $arItem): ?>
-                <div class="list-item">
-                    <? if ($arItem["PREVIEW_PICTURE"]): ?>
-                        <a href="<? echo $arItem["URL"] ?>" class="list-item__img">
-                            <? if ($arItem["PREVIEW_PICTURE"]): ?><img
-                                src="<?= $arItem["PREVIEW_PICTURE"] ?>"><? endif; ?>
-                        </a>
-                        <div class="list-item-text">
-                            <a href="<? echo $arItem["URL"] ?>" class="list-item-text__title"><? echo $arItem["TITLE_FORMATED"] ?></a>
-                            <div class="list-item-text__desc"><? echo $arItem["BODY_FORMATED"] ?></div>
-                            <div class="list-item-text__date"><?= $arItem["DATE_CHANGE"] ?></div>
+                <div class="main-news-item">
+                        <div>
+                            <a href="<? echo $arItem["URL"] ?>" class="main-news-item__title h4"><? echo $arItem["TITLE_FORMATED"] ?></a>
+                            <div class="main-news-item__title"><? echo $arItem["BODY_FORMATED"] ?></div>
+                            <div class="main-news-item__date"><?= $arItem["DATE_CHANGE"] ?></div>
                         </div>
-                    <? else: ?>
-                        <div class="list-item-text without-img">
-                            <a href="<? echo $arItem["URL"] ?>" class="list-item-text__title"><? echo $arItem["TITLE_FORMATED"] ?></a>
-                            <div class="list-item-text__desc"><? echo $arItem["BODY_FORMATED"] ?></div>
-                            <div class="list-item-text__date"><?= $arItem["DATE_CHANGE"] ?></div>
-                        </div>
-                    <? endif; ?>
                 </div>
                 <? if (
                     $arParams["SHOW_RATING"] == "Y"

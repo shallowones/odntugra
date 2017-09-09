@@ -16,75 +16,58 @@ $fileValue = $arResult['DISPLAY_PROPERTIES']['FILES']['FILE_VALUE'];
 $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
 ?>
 
-<div class="detail-page">
-    <div class="detail-page-header">
-        <div class="detail-page-header__date"><? echo $arResult['DATE'] ?></div>
-        <a class="detail-page-header-print__version" href="#">Версия для печати</a>
+<div>
+    <div><? echo $arResult['DATE'] ?></div>
+    <a href="#">Версия для печати</a>
+    <hr>
+    <div>
+        <? echo $arResult["PREVIEW_TEXT"] ?>
     </div>
-    <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
-    <img class="detail-page-img" src="<? echo $arResult['PREVIEW_PICTURE']['CROP_SRC'] ?>">
-    <div class="detail-page-text">
-        <? echo $arResult['PREVIEW_TEXT'] ?>
-    </div>
+
     <? if ($fileValue): ?>
-        <div class="files">
+        <hr>
+        <ul>
             <? if ($fileValue['ID']): ?>
-                <a class="files__item <? echo $fileValue['INFO']['EXTENSION'] ?>" href="<? echo $fileValue['SRC'] ?>"
-                   target="_blank">
-                    <? echo $fileValue['INFO']['NAME'] ?>
-                    <span><? echo $fileValue['INFO']['EXTENSION'] ?></span>
-                </a>
+                <li>
+                    <a href="<? echo $fileValue['SRC'] ?>"
+                       target="_blank">
+                        <? echo $fileValue['INFO']['NAME'] ?>
+                        <span><? echo $fileValue['INFO']['EXTENSION'] ?></span>
+                    </a>
+                </li>
             <? else: ?>
                 <? foreach ($fileValue as $arFile): ?>
-                    <a class="files__item <? echo $arFile['INFO']['EXTENSION'] ?>" href="<? echo $arFile['SRC'] ?>"
-                       target="_blank">
-                        <? echo $arFile['INFO']['NAME'] ?>
-                        <span><? echo $arFile['INFO']['EXTENSION'] ?></span>
-                    </a>
+                    <li>
+                        <a class="download-f" <? echo $arFile['INFO']['EXTENSION'] ?> href="<? echo $arFile['SRC'] ?>"
+                           target="_blank">
+                            <? echo $arFile['INFO']['NAME'] ?>
+                            <span><? echo $arFile['INFO']['EXTENSION'] ?></span>
+                        </a><br>
+                    </li>
+                <? endforeach; ?>
+            <? endif; ?>
+        </ul>
+    <? endif; ?>
+
+    <? if ($photoValue): ?>
+        <div>
+            <? if ($photoValue['ID']): ?>
+                <div style="background-image: url('<? echo $photoValue['CROP'] ?>');"></div>
+            <? else: ?>
+                <? foreach ($photoValue['CROP'] as $arFile): ?>
+                    <div style="background-image: url('<? echo $arFile['BIG'] ?>');"></div>
                 <? endforeach; ?>
             <? endif; ?>
         </div>
     <? endif; ?>
-
-    <? if ($photoValue): ?>
-        <div class="detail-sl">
-            <? if ($photoValue['ID']): ?>
-                <div class="swiper-container detail-slider js-detail-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide detail-slide" style="background-image: url('<? echo $photoValue['CROP'] ?>');"></div>
-                    </div>
-                    <div class="swiper-button-prev inner-left"></div>
-                    <div class="swiper-button-next inner-right"></div>
-                </div>
-            <? else: ?>
-                <div class="swiper-container detail-slider js-detail-slider">
-                    <div class="swiper-wrapper">
-                        <? foreach ($photoValue['CROP'] as $arFile): ?>
-                            <div class="swiper-slide detail-slide" style="background-image: url('<? echo $arFile['BIG'] ?>');"></div>
-                        <? endforeach; ?>
-                    </div>
-                    <div class="swiper-button-prev inner-left"></div>
-                    <div class="swiper-button-next inner-right"></div>
-                </div>
-                <div class="swiper-container detail-slider2 js-detail-slider2">
-                    <div class="swiper-wrapper">
-                        <? foreach ($photoValue['CROP'] as $arFile): ?>
-                            <div class="swiper-slide detail-slide2" style="background-image: url('<? echo $arFile['SMALL'] ?>');"></div>
-                        <? endforeach; ?>
-                    </div>
-                </div>
-            <? endif; ?>
-        </div>
-    <? endif; ?>
-
     <? if ($arResult['EVENTS']): ?>
-        <br clear="all">
-        <h3 class="h3 small">Мероприятия проекта</h3>
+        <br>
+        <h3>Мероприятия проекта</h3>
         <? foreach ($arResult['EVENTS'] as $event): ?>
-            <div class="event">
-                <a href="<? echo $event['LINK'] ?>" class="event__link"><? echo $event['NAME'] ?></a>
-                <div class="event__date"><? echo $event['DATE'] ?></div>
-            </div>
+            <ul>
+                <a href="<? echo $event['LINK'] ?>"><? echo $event['NAME'] ?></a>
+                <div><? echo $event['DATE'] ?></div>
+            </ul>
         <? endforeach; ?>
     <? endif; ?>
 </div>

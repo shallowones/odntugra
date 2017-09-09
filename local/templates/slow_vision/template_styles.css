@@ -509,10 +509,14 @@ body {
 .color_blue .form__select {
     background-color: #9dd1ff;
 }
+
+
+
 a {
     color: #000;
     text-decoration: underline;
 }
+
 a:hover {
     text-decoration: none;
 }
@@ -1013,6 +1017,7 @@ a.calendar__day:hover {
     overflow: hidden;
     position: relative;
     margin: 6px 0;
+
 }
 .cc__input {
     position: absolute;
@@ -1670,6 +1675,7 @@ textarea.slow__input {
 .folding__body table {
     width: auto !important;
     height: auto !important;
+    margin: 0 auto;
 }
 .custom-table td,
 .folding__body table td {
@@ -1677,6 +1683,9 @@ textarea.slow__input {
     padding: 5px;
 }
 
+.folding__body table tr th{
+    padding: 5px;
+}
 
 .popup-flex {
     display: flex;
@@ -1725,4 +1734,39 @@ textarea.slow__input {
 
 .special-aaKerning-extra body {
     letter-spacing: .4rem;
+}
+
+.bottom-line{
+    border-bottom: 2px solid #000;
+}
+
+.main-h1 .link {
+    display:none;
+}
+
+.mobile-more {
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.mobile-more:hover {
+    text-decoration: underline;
+}
+
+.tabs__section{
+    display:none;
+}
+
+.tabs__input[data-one]:checked~.tabs__section[data-one],
+.tabs__input[data-two]:checked~.tabs__section[data-two]
+{
+    display:block
+}
+.tabs__label{
+    text-align:center;
+}
+.input {
+    width: 40px;
+    height: 15px;
 }

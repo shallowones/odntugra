@@ -14,28 +14,24 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult['ITEMS']): ?>
-    <div class="adm">
-        <? foreach ($arResult['ITEMS'] as $item):
-            $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
-            $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_DELETE'), ['CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
-            ?>
-            <div class="adm-item">
-                <div class="adm-item-left">
-                    <img class="adm-item__img" src="<? echo $item['PREVIEW_PICTURE']['CROP_SRC'] ?>">
-                </div>
-                <div class="adm-item-right">
-                    <div class="adm-item__post"><? echo $item['NAME'] ?></div>
-                    <div class="adm-item__name"><? echo $item['PROPERTIES']['FIO']['VALUE'] ?></div>
-                    <ul class="adm-item__contacts">
-                        <? if ($phone = $item['PROPERTIES']['PHONE']['VALUE']): ?>
-                            <li>тел.: <b><? echo $phone ?></b></li>
-                        <? endif; ?>
-                        <? if ($email = $item['PROPERTIES']['EMAIL']['VALUE']): ?>
-                            <li>E-mail: <a href="<? echo 'mailto:' . $email ?>"><b><? echo $email ?></b></a></li>
-                        <? endif; ?>
-                    </ul>
-                </div>
-            </div>
-        <? endforeach; ?>
-    </div>
+
+    <?foreach ($arResult['ITEMS'] as $item):
+        $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
+        $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_DELETE'), ['CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
+        ?>
+        <div class="main-news-item" id="<?=$this->GetEditAreaId($item['ID']);?>">
+            <div class="main-news-item__title h4"><?echo $item['NAME']?></div>
+            <div class="main-news-item__title "><? echo $item['PROPERTIES']['FIO']['VALUE'] ?></div>
+            <ul class="main-news-item__title ">
+                <? if ($phone = $item['PROPERTIES']['PHONE']['VALUE']): ?>
+                    <li>тел.: <b><? echo $phone ?></b></li>
+                <? endif; ?>
+                <? if ($email = $item['PROPERTIES']['EMAIL']['VALUE']): ?>
+                    <li>E-mail: <a href="<? echo 'mailto:' . $email ?>"><b><? echo $email ?></b></a></li>
+                <? endif; ?>
+            </ul>
+        </div>
+        <hr>
+    <?endforeach; ?>
+
 <? endif; ?>

@@ -15,11 +15,12 @@ $this->setFrameMode(true);
 $secondChecked = !!($_REQUEST['PAGEN_2']);
 ?>
 
-<div class="tabs">
-    <input class="tabs__input" type="radio" id="radio-1" name="radio" data-one<? echo (!$secondChecked) ? ' checked' : '' ?>>
-    <label class="tabs__label" for="radio-1">Мероприятия</label>
-    <input class="tabs__input" type="radio" id="radio-2" name="radio" data-two<? echo ($secondChecked) ? ' checked' : '' ?>>
-    <label class="tabs__label second" for="radio-2">Проекты</label>
+<div>
+        <input class="tabs__input input" type="radio" id="radio-1" name="radio" data-one<? echo (!$secondChecked) ? ' checked' : '' ?>>
+        <label class="tabs__label h4" for="radio-1">Мероприятия</label>
+        <br>
+        <input class="tabs__input input" type="radio" id="radio-2" name="radio" data-two<? echo ($secondChecked) ? ' checked' : '' ?>>
+        <label class="tabs__label h4" for="radio-2">Проекты</label>
 
     <section class="tabs__section" data-one>
         <? $APPLICATION->IncludeComponent(
@@ -130,9 +131,10 @@ $secondChecked = !!($_REQUEST['PAGEN_2']);
             ),
             $component
         ); ?>
+        <a class="big-link" href="<? echo $arParams['BOTTOM_LINK'] ?>"><? echo $arParams['BOTTOM_TEXT'] ?></a>
     </section>
 </div>
-<a class="big-link" href="<? echo $arParams['BOTTOM_LINK'] ?>"><? echo $arParams['BOTTOM_TEXT'] ?></a>
+
 
 
 

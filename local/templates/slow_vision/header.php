@@ -104,7 +104,7 @@ $bHomePage = ($CurDir == '/');
                     ),
                     false
                 ); ?>
-                    </a>
+                </a>
                 <div class="header-info">
                     <div class="contacts-line">
                         ПРИЕМНАЯ:
@@ -160,9 +160,9 @@ $bHomePage = ($CurDir == '/');
                             ); ?>
                         </div>
                     </div>
-                </div>
+                 </div>
             </div>
-                <?$APPLICATION->IncludeComponent(
+                 <?$APPLICATION->IncludeComponent(
                     "bitrix:menu",
                     "left_menu",
                     Array(

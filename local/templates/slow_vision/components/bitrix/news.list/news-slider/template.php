@@ -12,30 +12,18 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
+<hr class="hr">
 <? if ($arResult['ITEMS']): ?>
-    <div class="swiper-container inner-slider js-inner-slider">
-        <div class="swiper-wrapper">
-            <? foreach ($arResult['ITEMS'] as $item):
-                $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
-                $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_DELETE'), ['CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
-                ?>
-                <a class="swiper-slide inner-slide" href="<? echo $item['DETAIL_PAGE_URL'] ?>" id="<? echo $this->GetEditAreaId($item['ID']); ?>">
-                    <div class="inner-slide__img" style="background-image: url('<? echo $item['PREVIEW_PICTURE']['CROP_SRC'] ?>');"></div>
-                    <div class="inner-slide__wrap"></div>
-                    <div class="inner-slide__desc">
-                        <div class="info">
-                            <div class="info-date"><? echo $item['DATE'] ?></div>
-                            <p><? echo $item['NAME_CROP'] ?></p>
-                        </div>
-                    </div>
-                    <div class="more">ПОДРОБНЕЕ</div>
-                </a>
-            <? endforeach; ?>
+    <h1 class="h1">Главные новости</h1>
+    <? foreach ($arResult['ITEMS'] as $item):
+        $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
+        $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_DELETE'), ['CONFIRM' => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]);
+        ?>
+        <div class="main-news-item" id="<?=$this->GetEditAreaId($item['ID']);?>">
+            <div class="main-news-item__date"><?echo $item['DATE']?></div>
+            <div class="main-news-item__title h4"><a href="<?echo $item["DETAIL_PAGE_URL"]?>" class="link_clear">
+                    <?echo $item['NAME']?></a></div>
         </div>
-        <div class="swiper-button-prev inner-left"></div>
-        <div class="swiper-button-next inner-right"></div>
-    </div>
+    <? endforeach; ?>
 <? endif; ?>
-
 <hr class="hr">

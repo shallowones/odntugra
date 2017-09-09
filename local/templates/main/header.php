@@ -145,7 +145,8 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
                 </div>
             </div>
             <div class="text-center">
-                <a href="/?slow_vision=Y" class="slow">Версия для слабовидящих</a>
+
+                <a href="<?echo $APPLICATION->GetCurDir()?>?slow_vision=Y" class="slow">Версия для слабовидящих</a>
                 <br><br>
                 <a href="http://www.to-kultura.ru/" class="old-version" target="_blank">Старая версия сайта</a>
             </div>

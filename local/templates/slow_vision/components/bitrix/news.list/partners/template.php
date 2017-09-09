@@ -12,6 +12,8 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+<br>
+<div class="bottom-line"></div>
 
 <? if ($arResult['ITEMS']): ?>
     <h1 class="h1">Партнеры</h1>

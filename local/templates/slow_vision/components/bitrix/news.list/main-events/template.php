@@ -12,8 +12,9 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
+<hr class="hr">
 <? if ($arResult['ITEMS']): ?>
+
     <div class="main-news">
         <? foreach ($arResult['ITEMS'] as $item):
             $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item['IBLOCK_ID'], 'ELEMENT_EDIT'));
@@ -26,3 +27,4 @@ $this->setFrameMode(true);
         <? endforeach; ?>
     </div>
 <? endif; ?>
+<hr class="hr">
