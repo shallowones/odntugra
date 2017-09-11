@@ -157,7 +157,7 @@ $detailWrapClass = (defined('FULL_WRAP')) ? 'wrapper' : 'wrapper-detail';
         <a class="header-mobile__logo" href="/"></a>
     </div>
     <main class="main">
-        <? if (!$main /*&& !$bool404*/): ?>
+        <? if (!$main): ?>
         <div class="<? echo $detailWrapClass ?>">
             <? $APPLICATION->IncludeComponent(
                 "bitrix:breadcrumb",
