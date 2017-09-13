@@ -11,7 +11,7 @@ $aMenuLinks = Array(
 		"Публикации в СМИ", 
 		"/press-sluzhba/smi/", 
 		Array(), 
-		Array(), 
+		Array("VISION"=>"FALSE"), 
 		"" 
 	)
 );

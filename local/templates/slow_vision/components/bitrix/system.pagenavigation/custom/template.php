@@ -14,7 +14,7 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["N
     <? if ($arResult["NavPageNomer"] > 1): ?>
 
         <? if ($arResult["bSavePage"]): ?>
-            <a class="pager__link Предыдущая"
+            <a class="pager__link pager__link_arrow"
                href="<?= $arResult["sUrlPath"] ?>?<?= $strNavQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= ($arResult["NavPageNomer"] - 1) ?>">Предыдущая</a>
         <? else: ?>
             <? if ($arResult["NavPageNomer"] > 2): ?>
