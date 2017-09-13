@@ -7,16 +7,16 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/archive/index.php",
 	),
 	array(
-		"CONDITION" => "#^/deyatelnost/razvitie/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/deyatelnost/razvitie/index.php",
-	),
-	array(
 		"CONDITION" => "#^/deyatelnost/calendar/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/deyatelnost/calendar/index.php",
+	),
+	array(
+		"CONDITION" => "#^/deyatelnost/razvitie/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/deyatelnost/razvitie/index.php",
 	),
 	array(
 		"CONDITION" => "#^/press-sluzhba/news/#",
@@ -49,16 +49,16 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/index.php",
 	),
 	array(
-		"CONDITION" => "#^/media/photo/#",
-		"RULE" => "",
-		"ID" => "uw:photogallery",
-		"PATH" => "/media/photo/index.php",
-	),
-	array(
 		"CONDITION" => "#^/about/polls/#",
 		"RULE" => "",
 		"ID" => "uw:polls",
 		"PATH" => "/about/polls/index.php",
+	),
+	array(
+		"CONDITION" => "#^/media/photo/#",
+		"RULE" => "",
+		"ID" => "uw:photogallery",
+		"PATH" => "/media/photo/index.php",
 	),
 	array(
 		"CONDITION" => "#^/photo/add/#",
