@@ -4,6 +4,7 @@ class CUwPhotogalleryList extends CBitrixComponent
 {
     private function getData()
     {
+        \Bitrix\Main\Loader::includeModule('iblock');
         $rs = \CIBlockSection::GetList(
             ['created' => 'desc', 'id' => 'desc'],
             ['ACTIVE' => 'Y', 'IBLOCK_ID' => $this->arParams['IBLOCK_ID']],

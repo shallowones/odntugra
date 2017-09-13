@@ -9,14 +9,21 @@
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 ?>
+    <div class="structure_contact">
+        <? if ($arResult['section']['phones']): ?>
+            <div class="detail-contacts main-padding-right">
+                <b>Телефон для связи</b>
+                <p class="desc margin"><? echo $arResult['section']['phones'] ?></p>
+            </div>
+        <? endif; ?>
 
-<? if ($arResult['section']['phones']): ?>
-    <div class="detail-contacts">
-        <b>Телефон для связи</b>
-        <p class="desc margin"><? echo $arResult['section']['phones'] ?></p>
+        <? if ($arResult['section']['email']): ?>
+            <div class="detail-contacts">
+                <b>E-mail</b>
+                <p class="desc margin"><? echo $arResult['section']['email'] ?></p>
+            </div>
+        <? endif; ?>
     </div>
-<? endif; ?>
-
 <? if ($arResult['section']['description']): ?>
     <div class="detail-desc">
         <? echo $arResult['section']['description'] ?>

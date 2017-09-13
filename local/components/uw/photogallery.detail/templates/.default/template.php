@@ -9,3 +9,13 @@
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 ?>
+<? if ($arResult['items']): ?>
+    <div class="videos">
+        <? foreach ($arResult['items'] as $item): ?>
+            <a class="photos__item" href="<? echo $item['picture']['path'] ?>" rel="group" data-fancybox="gallery">
+                <div class="photos__item-img"
+                     style="background-image: url('<? echo $item['picture']['crop'] ?>')"></div>
+            </a>
+        <? endforeach; ?>
+    </div>
+<? endif; ?>

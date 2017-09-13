@@ -15,7 +15,7 @@ $this->setFrameMode(true);
 $fileValue = $arResult['DISPLAY_PROPERTIES']['FILES']['FILE_VALUE'];
 $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
 ?>
-
+<?/* gg($arResult); */?>
 <div class="detail-page">
     <div class="detail-page-header">
         <div class="detail-page-header__date"><? echo $arResult['DATE'] ?></div>
@@ -24,7 +24,7 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
     <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
     <img class="detail-page-img" src="<? echo $arResult['PREVIEW_PICTURE']['CROP_SRC'] ?>">
     <div class="detail-page-text">
-        <? echo $arResult["DETAIL_TEXT"] ?>
+        <? echo $arResult["PREVIEW_TEXT"] ?>
     </div>
     <? if ($fileValue): ?>
         <div class="files">

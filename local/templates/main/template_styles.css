@@ -10,3 +10,11 @@
 .adm-column {
     width: 33%;
 }
+.structure_contact {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+}
+.main-padding-right {
+    padding-right: 30px;
+}

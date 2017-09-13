@@ -11,13 +11,14 @@ class CUwStructureDetail extends CBitrixComponent
             [],
             ['ACTIVE' => 'Y', 'IBLOCK_ID' => $iblockId, 'CODE' => $sectionCode],
             false,
-            ['ID', 'NAME', 'DESCRIPTION', 'UF_PHONES']
+            ['ID', 'NAME', 'DESCRIPTION', 'UF_PHONES', 'UF_EMAIL']
         );
         if ($section = $rs->Fetch()) {
             $this->arResult['section'] = [
                 'name' => $section['NAME'],
                 'description' => $section['DESCRIPTION'],
-                'phones' => implode('<br>', $section['UF_PHONES'])
+                'phones' => implode('<br>', $section['UF_PHONES']),
+                'email' => implode('<br>', $section['UF_EMAIL'])
             ];
 
             global $APPLICATION;

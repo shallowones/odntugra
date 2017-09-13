@@ -7,6 +7,7 @@ class CUwPhotogalleryDetail extends CBitrixComponent
         $iblockId = $this->arParams['IBLOCK_ID'];
         $sectionId = $this->arParams['SECTION_ID'];
 
+        \Bitrix\Main\Loader::includeModule('iblock');
         $rs = \CIBlockSection::GetList(
             [],
             ['ACTIVE' => 'Y', 'IBLOCK_ID' => $iblockId, 'ID' => $sectionId],
