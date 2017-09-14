@@ -17,7 +17,7 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
 ?>
 
         <div><? echo $arResult['DATE'] ?></div>
-        <a href="#">Версия для печати</a>
+        <noindex><a href="<?=$APPLICATION->GetCurUri("print=Y");?>">Версия для печати</a></noindex>
     <h1><? echo $arResult['NAME'] ?></h1>
     <div>
         <? echo $arResult["~DETAIL_TEXT"] ?>

@@ -11,20 +11,22 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
+//gg($arResult);
 $fileValue = $arResult['DISPLAY_PROPERTIES']['FILES']['FILE_VALUE'];
 $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
 ?>
 
 <div class="detail-page">
+
+    <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
+    <br>
     <div class="detail-page-header">
         <div class="detail-page-header__date"><? echo $arResult['DATE'] ?></div>
-        <a class="detail-page-header-print__version" href="<?=$APPLICATION->GetCurUri("print=Y");?>">Версия для печати</a>
-    </div>
-    <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
+            </div>
+
     <img class="detail-page-img" src="<? echo $arResult['PREVIEW_PICTURE']['CROP_SRC'] ?>">
     <div class="detail-page-text">
-        <? echo $arResult["~DETAIL_TEXT"] ?>
+        <? echo $arResult['PREVIEW_TEXT'] ?>
     </div>
     <? if ($fileValue): ?>
         <div class="files">
@@ -75,5 +77,16 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
                 </div>
             <? endif; ?>
         </div>
+    <? endif; ?>
+
+    <? if ($arResult['EVENTS']): ?>
+        <br clear="all">
+        <h3 class="h3 small">Мероприятия проекта</h3>
+        <? foreach ($arResult['EVENTS'] as $event): ?>
+            <div class="event">
+                <a href="<? echo $event['LINK'] ?>" class="event__link"><? echo $event['NAME'] ?></a>
+                <div class="event__date"><? echo $event['DATE'] ?></div>
+            </div>
+        <? endforeach; ?>
     <? endif; ?>
 </div>

@@ -1,0 +1,145 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+img {border:0;}
+
+table {border-collapse: collapse;}
+
+body {
+    color:#000;
+    font:normal 13pt/18pt 'Times New Roman'	'Times CY'	'Nimbus Roman No9 L', Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
+    background:#fff url("images/bg.gif") left top repeat;
+    background:#dbdbdb;
+}
+
+html, body {height: 100%;}
+
+p {margin:3mm 0 6mm 0;}
+
+ul {margin:10px 0 10px 45px;}
+ol {margin:10px 0 10px 45px;}
+ul li,
+ol li {padding-bottom:2px;}
+
+
+
+/* Headers
+-----------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+    font-family:Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
+}
+
+h1 {font-size:20pt; line-height:23pt;}
+h2 {font-size:17pt; line-height:20pt;}
+h3 {font-size:16pt; line-height:18pt;}
+h4 {font-size:15pt; line-height:17pt;}
+h5 {font-size:14pt; line-height:16pt;}
+h6 {font-size:14pt; line-height:16pt;}
+
+
+.main-h {
+    margin:20pt 0;
+    padding:0;
+}
+
+.logo {
+    background: url("images/logo.png") no-repeat scroll 0 0 transparent;
+    color: #545456 !important;
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    height: 105px;
+    left: 15px;
+    padding-left: 90px;
+    padding-top: 76px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo_top-h {
+    font-size: 11px;
+}
+
+/*  Headers
+----------------------------------------end----- */
+
+
+/*  Links
+------------------------------------------------ */
+
+a {color:#00649F;}
+a:visited {color:#00649F;}
+a:hover {color:#000;}
+a:focus {outline:thin dotted;}
+
+
+a:hover, a:active { outline: 0; }
+
+
+/*  Links
+----------------------------------------end----- */
+
+
+
+
+/*  Layout structure
+------------------------------------------------ */
+
+#page {
+    width:210mm;
+    padding:5mm 5mm 5mm 10mm;
+    background:#fff;
+    margin:auto;
+}
+#logo {
+    display:block;
+    width:490px;
+    height:91px;
+    margin-bottom:40px;
+}
+
+
+
+#footer {
+    font-size:11pt;
+    line-height:14pt;
+    margin-top:10mm;
+    text-align:center;
+}
+.footer-line-copy {
+    margin-bottom:3pt;
+}
+
+/*  Layout structure
+------------------------------------------END--- */
+
+
+/* Custom table
+-----------------------------------*/
+.custom-table {
+    margin:15pt 0;
+    background:#fff;
+    font-family:Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
+}
+.custom-table-header td, th {
+    text-align:center;
+    font-weight:bold;
+}
+.custom-table td {
+    padding:4pt;
+    border:1px solid #000;
+    vertical-align:top;
+    font-size:11pt;
+    line-height:14pt;
+}
+
+/* Custom table ---end-----*/

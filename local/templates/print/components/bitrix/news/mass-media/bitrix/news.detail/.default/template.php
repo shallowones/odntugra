@@ -17,14 +17,15 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
 ?>
 
 <div class="detail-page">
+    <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
+    <br>
     <div class="detail-page-header">
         <div class="detail-page-header__date"><? echo $arResult['DATE'] ?></div>
-        <a class="detail-page-header-print__version" href="<?=$APPLICATION->GetCurUri("print=Y");?>">Версия для печати</a>
     </div>
-    <h1 class="detail-page-title"><? echo $arResult['NAME'] ?></h1>
+
     <img class="detail-page-img" src="<? echo $arResult['PREVIEW_PICTURE']['CROP_SRC'] ?>">
     <div class="detail-page-text">
-        <? echo $arResult["~DETAIL_TEXT"] ?>
+        <? echo $arResult["DETAIL_TEXT"] ?>
     </div>
     <? if ($fileValue): ?>
         <div class="files">
@@ -75,5 +76,10 @@ $photoValue = $arResult['DISPLAY_PROPERTIES']['PHOTOS']['FILE_VALUE'];
                 </div>
             <? endif; ?>
         </div>
+    <? endif; ?>
+
+    <? if ($link = $arResult['PROPERTIES']['LINK']['VALUE']): ?>
+        <br>
+        <a href="<? echo $link ?>" class="list-item-text__title ist" target="_blank"><? echo $link ?></a>
     <? endif; ?>
 </div>
