@@ -11,11 +11,11 @@ $APPLICATION->SetTitle("Структура");
 		"COMPONENT_TEMPLATE" => ".default",
 		"SEF_MODE" => "Y",
 		"SEF_FOLDER" => "/about/structure/",
+		"VACANCY_LINK" => "/about/rabota/",
 		"SEF_URL_TEMPLATES" => array(
 			"list" => "",
 			"detail" => "#SECTION_CODE#/",
-		),
-		"VACANCY_LINK" => "/about/rabota/"
+		)
 	),
 	false
 ); ?>

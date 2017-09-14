@@ -58,4 +58,16 @@ $APPLICATION->SetTitle("Телефонный справочник");
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "ASC"
 	)
-);?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+);?><br>
+ <?$APPLICATION->IncludeComponent(
+	"uw:handbook", 
+	".default", 
+	array(
+		"IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_STRUCTURE),
+		"VACANCY_LINK" => "/about/rabota/",
+		"COMPONENT_TEMPLATE" => ".default",
+		"detail" => "#SECTION_CODE#/",
+		"SECTION_CODE" => "#SECTION_CODE#/"
+	),
+	false
+);?><br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
