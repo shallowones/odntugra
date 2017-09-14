@@ -4,13 +4,14 @@ $APPLICATION->SetTitle("Учреждения КДУ муниципальных �
 ?>
 
 <? $APPLICATION->IncludeComponent(
-    "uw:agency",
-    ".default",
-    array(
-        "IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_AGENCY),
-        "ELEM_COUNT" => "5"
-    ),
-    false
+	"uw:agency", 
+	".default", 
+	array(
+		"IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_AGENCY),
+		"ELEM_COUNT" => "5",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
 ); ?>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
