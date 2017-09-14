@@ -8,7 +8,7 @@
 /** @global CDatabase $DB */
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
-//var_dump($arResult);
+
 ?>
     <div class="hide-block">
         <? foreach ($arResult['section'] as $mo): ?>
@@ -23,7 +23,7 @@
                                     <td><? echo $item['name'] ?></td>
                                 <? else: ?>
                                     <td>
-                                        <a href="">Вакансия</a>
+                                        <a href="<?echo $arResult['vacancy']?>">Вакансия</a>
                                     </td>
                                 <? endif; ?>
                             </tr>

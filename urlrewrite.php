@@ -37,28 +37,28 @@ $arUrlRewrite = array(
 		"PATH" => "/about/structure/index.php",
 	),
 	array(
-		"CONDITION" => "#^/media/photo/add/#",
-		"RULE" => "",
-		"ID" => "bitrix:photogallery",
-		"PATH" => "/media/photo/add/index.php",
-	),
-	array(
 		"CONDITION" => "#^/projects-events/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/projects-events/index.php",
 	),
 	array(
-		"CONDITION" => "#^/about/polls/#",
+		"CONDITION" => "#^/media/photo/add/#",
 		"RULE" => "",
-		"ID" => "uw:polls",
-		"PATH" => "/about/polls/index.php",
+		"ID" => "bitrix:photogallery",
+		"PATH" => "/media/photo/add/index.php",
 	),
 	array(
 		"CONDITION" => "#^/media/photo/#",
 		"RULE" => "",
 		"ID" => "uw:photogallery",
 		"PATH" => "/media/photo/index.php",
+	),
+	array(
+		"CONDITION" => "#^/about/polls/#",
+		"RULE" => "",
+		"ID" => "uw:polls",
+		"PATH" => "/about/polls/index.php",
 	),
 	array(
 		"CONDITION" => "#^/photo/add/#",

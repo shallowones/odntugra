@@ -8,7 +8,6 @@
 /** @global CDatabase $DB */
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
-//var_dump($arResult);
 ?>
 
 
