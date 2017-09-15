@@ -9,6 +9,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     font-size: 100%;
 }
 
+
 img {border:0;}
 
 table {border-collapse: collapse;}
@@ -60,6 +61,7 @@ h6 {font-size:14pt; line-height:16pt;}
     left: 15px;
     text-decoration: none;
     text-transform: uppercase;
+    -webkit-print-color-adjust: exact;
 }
 
 .logo_top-h {
@@ -102,6 +104,7 @@ a:hover, a:active { outline: 0; }
     width:490px;
     height:91px;
     margin-bottom:40px;
+
 }
 
 
@@ -140,3 +143,13 @@ a:hover, a:active { outline: 0; }
 }
 
 /* Custom table ---end-----*/
+
+
+@media print {
+    #bx-panel,
+    .back-end,
+    .print{
+        display: none !important;;
+    }
+
+}

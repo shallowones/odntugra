@@ -1,14 +1,4 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-/** @var CBitrixComponentTemplate $this */
-/** @var array $arParams */
-/** @var array $arResult */
-/** @var string $componentPath */
-/** @var string $componentName */
-/** @var string $componentTemplate */
-/** @global CDatabase $DB */
-/** @global CUser $USER */
-/** @global CMain $APPLICATION */
-
 ?>
     <div class="hide-block">
         <? foreach ($arResult['section'] as $mo): ?>
@@ -36,8 +26,10 @@
                         <? endforeach;
                         endif; ?>
 
-                        <? if ($mo['email']): ?>
-                            <p>e-mail: <? echo $mo['email'] ?></p>
+                        <? if ($mo['email']):
+                            foreach ($mo['email'] as $email):?>
+                            <p>e-mail: <? echo $email ?></p>
+                            <? endforeach;?>
                         <? endif; ?>
                     </div>
                 </div>

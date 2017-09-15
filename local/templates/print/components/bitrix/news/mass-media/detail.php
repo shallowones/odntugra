@@ -65,7 +65,8 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<p><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>">Вернуться назад</a></p>
+<p class="back-end"><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>">Вернуться назад</a></p>
+<p><a class="print" href="" onclick="window.print()">Распечатать документ</a></p>
 <?if($arParams["USE_RATING"]=="Y" && $ElementID):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",
