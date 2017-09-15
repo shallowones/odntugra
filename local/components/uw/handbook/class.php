@@ -1,19 +1,17 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-class CUwAgency extends CBitrixComponent
+class CUwHandBook extends CBitrixComponent
 {
     private function getData()
     {
-        #Индитификатор ИБ
         $iblockId = $this->arParams['IBLOCK_ID'];
-//        $sectionCode = $this->arParams['SECTION_CODE'];
         $rs = \CIBlockSection::GetList(
             [],
             ['ACTIVE' => 'Y', 'IBLOCK_ID' => $iblockId],
             false,
             ['ID', 'CODE', 'NAME', 'UF_PHONES', 'UF_EMAIL']
         );
-        $sec = array();
+        $sec = [];
 
         while ($section = $rs->Fetch()) {
             $it = \CIBlockElement::GetList(
@@ -23,7 +21,7 @@ class CUwAgency extends CBitrixComponent
                 false,
                 ['ID', 'NAME', 'PROPERTY_FIO']
             );
-            $items = array();
+            $items = [];
             while ($employee = $it->Fetch()) {
                 $items['items'][$employee['ID']] = [
                     'post' => $employee['NAME'],

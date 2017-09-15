@@ -2,11 +2,6 @@
 
 $arComponentParameters = [
     'PARAMETERS' => [
-//        'VARIABLE_ALIASES' => [
-//            'ELEMENT_ID' => [
-//                'NAME' => 'Идентификатор отдела'
-//            ]
-//        ],
         'IBLOCK_ID' => [
             'PARENT' => 'BASE',
             'NAME' => 'Идентификатор инфоблока',

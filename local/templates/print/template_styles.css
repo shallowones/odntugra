@@ -15,8 +15,7 @@ table {border-collapse: collapse;}
 
 body {
     color:#000;
-    font:normal 13pt/18pt 'Times New Roman'	'Times CY'	'Nimbus Roman No9 L', Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
-    background:#fff url("images/bg.gif") left top repeat;
+    font:normal 13pt/18pt 'Times New Roman', Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
     background:#dbdbdb;
 }
 
@@ -35,7 +34,6 @@ ol li {padding-bottom:2px;}
 -----------------------------------*/
 h1, h2, h3, h4, h5, h6 {
     font-weight:normal;
-    font-family:Arial, 'Helvetica CY', 'Nimbus Sans L', serif;
 }
 
 h1 {font-size:20pt; line-height:23pt;}
@@ -57,10 +55,9 @@ h6 {font-size:14pt; line-height:16pt;}
     display: block;
     font-size: 22px;
     font-weight: bold;
-    height: 105px;
+    height: 50px;
+    padding-bottom: 25px;
     left: 15px;
-    padding-left: 90px;
-    padding-top: 76px;
     text-decoration: none;
     text-transform: uppercase;
 }

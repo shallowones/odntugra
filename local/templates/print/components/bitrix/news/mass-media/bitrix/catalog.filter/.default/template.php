@@ -15,13 +15,15 @@ $this->setFrameMode(true);
 
 <form class="filter" action="<? echo $arResult['FORM_ACTION'] ?>" name="<? echo $arResult['FILTER_NAME'] . "_form" ?>"
       method="post">
-    <div class="filter-left">
-        <div class="filter-dsc">ПО ДАТЕ</div>
+    <div class="teasers">
+        <div class="main-news-item__title h4">ПО ДАТЕ</div>
         <? foreach ($arResult['INPUTS'] as $input): ?>
-            <div class="filter-block">
-                <label class="filter-block__label" for="<? echo $input['NAME'] ?>"><? echo $input['LABEL'] ?></label>
+            <div class="main-news-item__title">
+                <label  for="<? echo $input['NAME'] ?>"><? echo $input['LABEL'] ?></label>
+            </div>
+            <div class="cc">
                 <input
-                        class="filter-block__input js-filter-input"
+                        class="slow__input js-filter-input"
                         id="<? echo $input['NAME'] ?>"
                         name="<? echo $input['NAME'] ?>"
                         value="<? echo $input['VALUE'] ?>"
@@ -30,7 +32,7 @@ $this->setFrameMode(true);
         <? endforeach; ?>
     </div>
     <div class="filter-right">
-        <button class="filter__button clear" name="del_filter" value="Y">Сбросить</button>
-        <button class="filter__button" name="set_filter" value="Y">Показать</button>
+        <button class="form__submit" name="del_filter" value="Y">Сбросить</button>
+        <button class="form__submit" name="set_filter" value="Y">Показать</button>
     </div>
 </form>
