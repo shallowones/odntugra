@@ -98,6 +98,7 @@ a:hover, a:active { outline: 0; }
     padding:5mm 5mm 5mm 10mm;
     background:#fff;
     margin:auto;
+    position: relative;
 }
 #logo {
     display:block;
@@ -143,7 +144,11 @@ a:hover, a:active { outline: 0; }
 }
 
 /* Custom table ---end-----*/
-
+.print{
+    position: absolute;
+    right: 36px;
+    top: 24px;
+}
 
 @media print {
     #bx-panel,
