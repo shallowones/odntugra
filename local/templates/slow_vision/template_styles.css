@@ -1672,6 +1672,7 @@ textarea.slow__input {
     left: 836px;
 }
 .custom-table,
+folding__body_str,
 .folding__body table {
     width: auto !important;
     height: auto !important;
@@ -1679,6 +1680,11 @@ textarea.slow__input {
 }
 .custom-table td,
 .folding__body table td {
+    border: 1px solid;
+    padding: 5px;
+}
+
+.folding__body_str td{
     border: 1px solid;
     padding: 5px;
 }
