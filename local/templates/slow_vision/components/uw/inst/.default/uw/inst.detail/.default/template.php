@@ -15,12 +15,11 @@
             Адрес: <?echo $arResult['info']['address']?>
             <br><br>
         <?endif;?>
-        <? if ($arResult['info']['phone']['tel']):?>
-            <?foreach($arResult['info']['phone'] as $item):?>
-                Тел. <?echo $item['tel']?> <br>
-            <?endforeach;?>
-            <br>
-        <?endif;?>
+        <?foreach($arResult['info']['phone'] as $item):?>
+            <?if($item['tel']):?>
+                Тел. <?echo $item['tel']?> <br> <br>
+            <?endif;?>
+        <?endforeach;?>
         <? if ($arResult['info']['email']):?>
             E-mail:  <a href="mailto:<?echo $arResult['info']['email']?>"><?echo $arResult['info']['email']?></a>
             <br><br>
