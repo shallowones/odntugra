@@ -7,16 +7,16 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/archive/index.php",
 	),
 	array(
-		"CONDITION" => "#^/deyatelnost/calendar/#",
-		"RULE" => "",
-		"ID" => "bitrix:news",
-		"PATH" => "/deyatelnost/calendar/index.php",
-	),
-	array(
 		"CONDITION" => "#^/deyatelnost/razvitie/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",
 		"PATH" => "/deyatelnost/razvitie/index.php",
+	),
+	array(
+		"CONDITION" => "#^/deyatelnost/calendar/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/deyatelnost/calendar/index.php",
 	),
 	array(
 		"CONDITION" => "#^/press-sluzhba/news/#",
@@ -31,6 +31,12 @@ $arUrlRewrite = array(
 		"PATH" => "/press-sluzhba/smi/index.php",
 	),
 	array(
+		"CONDITION" => "#^/media/photo/add/#",
+		"RULE" => "",
+		"ID" => "bitrix:photogallery",
+		"PATH" => "/media/photo/add/index.php",
+	),
+	array(
 		"CONDITION" => "#^/about/structure/#",
 		"RULE" => "",
 		"ID" => "uw:structure",
@@ -43,10 +49,10 @@ $arUrlRewrite = array(
 		"PATH" => "/projects-events/index.php",
 	),
 	array(
-		"CONDITION" => "#^/media/photo/add/#",
+		"CONDITION" => "#^/about/polls/#",
 		"RULE" => "",
-		"ID" => "bitrix:photogallery",
-		"PATH" => "/media/photo/add/index.php",
+		"ID" => "uw:polls",
+		"PATH" => "/about/polls/index.php",
 	),
 	array(
 		"CONDITION" => "#^/media/photo/#",
@@ -55,10 +61,10 @@ $arUrlRewrite = array(
 		"PATH" => "/media/photo/index.php",
 	),
 	array(
-		"CONDITION" => "#^/about/polls/#",
+		"CONDITION" => "#^/kdu-agency/#",
 		"RULE" => "",
-		"ID" => "uw:polls",
-		"PATH" => "/about/polls/index.php",
+		"ID" => "uw:inst",
+		"PATH" => "/kdu-agency/index.php",
 	),
 	array(
 		"CONDITION" => "#^/photo/add/#",
