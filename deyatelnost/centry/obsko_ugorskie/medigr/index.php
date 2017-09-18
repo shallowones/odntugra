@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Медвежьи игрища 1988 г.");
+$APPLICATION->SetTitle("Медвежьи игрища");
 ?><?$APPLICATION->IncludeComponent(
 	"uw:photogallery.detail", 
 	".default", 

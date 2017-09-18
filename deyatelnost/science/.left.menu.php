@@ -1,15 +1,15 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Организационно-методическая деятельность", 
-		"/deyatelnost/science/org.php", 
+		"Реестры из информационно-аналитической системы «БАРС. Web – Мониторинг культуры»", 
+		"/deyatelnost/science/bars/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Реестры из информационно-аналитической системы «БАРС. Web – Мониторинг культуры»", 
-		"/deyatelnost/science/bars.php", 
+		"Научно-исследовательская деятельность", 
+		"/deyatelnost/science/deyat/", 
 		Array(), 
 		Array(), 
 		"" 

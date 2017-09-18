@@ -13,6 +13,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array("VISION"=>"FALSE"), 
 		"" 
+	),
+	Array(
+		"Календарь памятных дат", 
+		"/press-sluzhba/calendar/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

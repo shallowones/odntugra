@@ -27,6 +27,20 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Государственные задания и перечень мероприятия в рамках государственного задания", 
+		"/dokuments/gos_quest/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Отчеты", 
+		"/dokuments/otchety/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

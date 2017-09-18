@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Учреждения КДУ муниципальных �
 	".default", 
 	array(
 		"IBLOCK_ID" => \UW\IBHelper::getIbId(\UW\IBCodes::IB_CODE_AGENCY),
-		"ELEM_COUNT" => "5",
+		"ELEM_COUNT" => "10",
 		"COMPONENT_TEMPLATE" => ".default"
 	),
 	false

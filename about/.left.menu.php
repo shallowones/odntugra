@@ -22,13 +22,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Центры Окружного Дома народного творчества", 
-		"/about/centry/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Наши услуги", 
 		"/about/uslugi/", 
 		Array(), 
