@@ -16,7 +16,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Календарь памятных дат", 
-		"/press-sluzhba/calendar/", 
+		"/press-sluzhba/calendar/history/", 
 		Array(), 
 		Array(), 
 		"" 
