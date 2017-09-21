@@ -12,7 +12,7 @@ class CUwInstDetail extends CBitrixComponent
             false,
             false,
             ['ID', 'CODE', 'NAME', 'PROPERTY_LINK', 'PROPERTY_PHONE',
-                'PROPERTY_EMAIL', 'PROPERTY_DESCRIPTION',
+                'PROPERTY_EMAIL', 'DETAIL_TEXT',
                 'PROPERTY_DIRECTOR', 'PROPERTY_ADDRESS', 'PREVIEW_PICTURE']
         );
         while ($element = $rsElements->Fetch()) {
@@ -35,7 +35,7 @@ class CUwInstDetail extends CBitrixComponent
                 'name' => $element['NAME'],
                 'email' => $element['PROPERTY_EMAIL_VALUE'],
                 'link' => $element['PROPERTY_LINK_VALUE'],
-                'desc' => $element['PROPERTY_DESCRIPTION_VALUE'],
+                'desc' => $element['DETAIL_TEXT'],
                 'direk' => $element['PROPERTY_DIRECTOR_VALUE'],
                 'address' => $element['PROPERTY_ADDRESS_VALUE'],
                 'PREVIEW_PICTURE' => CFile::GetFileArray($element['PREVIEW_PICTURE']),
